@@ -21,8 +21,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    flash[:notice] = "See ya next time!"
     session.delete(:user_id)
+    flash[:notice] = "See ya next time!"
     redirect_to root_path
   end
 
