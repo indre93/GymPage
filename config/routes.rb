@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     #resources :workout
   #end
 
-  #resources :comments
-  #resources :workouts
+  resources :comments
+  resources :workouts
   resources :users
 end
