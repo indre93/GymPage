@@ -4,8 +4,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.integer :height
-      t.float :weight
       t.string :password_digest
 
       t.timestamps null: false
