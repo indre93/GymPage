@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     find_user
+    redirect_if_not_user
   end
 
   private
