@@ -11,8 +11,9 @@
 
   <div class=nav-bar>
     <% if current_user %>
-      <%= link_to "#{current_user.first_name}'s profile", current_user %> | 
-      <%= link_to "Home Page", root_path %> |
+      <%= link_to "Home Page", root_path if !current_page?(root_path) %> |
+      <%= link_to "My Page", current_user if !current_page?(current_user) %> | 
+      <%= link_to "Add New Workout", new_workout_path if !current_page?(new_workout_path) %> |
       <%= link_to "Log Out", logout_path, method: :delete %>
     <% else %>
       <%= link_to "Home Page", root_path %> | 
