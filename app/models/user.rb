@@ -9,5 +9,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   before_save { self.email = email.downcase }
-
 end
