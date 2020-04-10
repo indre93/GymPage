@@ -24,11 +24,11 @@
   <body>
     <!-- show flash message if any: -->
     <% if flash[:notice] %>
-      <p style="color: green;"><%= flash[:notice] %></p>
+      <h3 style="color: green;"><%= flash[:notice] %></h3>
     <% end %>
 
     <% if flash[:error] %>
-      <p style="color: green;"><%= flash[:error] %></<p>
+      <h3 style="color: green;"><%= flash[:error] %></<h3>
     <% end %>
     <!-- end -->
 
