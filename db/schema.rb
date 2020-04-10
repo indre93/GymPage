@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_231616) do
+ActiveRecord::Schema.define(version: 2020_04_10_044851) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2020_04_08_231616) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
     t.index ["workout_id"], name: "index_comments_on_workout_id"
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "workout_id"
+    t.string "name"
+    t.boolean "upper_body?"
+    t.boolean "lower_body?"
+    t.boolean "cardio?"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_exercises_on_user_id"
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,10 +47,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_231616) do
 
   create_table "workouts", force: :cascade do |t|
     t.integer "user_id"
-    t.string "name"
     t.text "description"
-    t.boolean "upper_body?"
-    t.boolean "lower_body?"
+    t.datetime "date_workedout"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_workouts_on_user_id"
