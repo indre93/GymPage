@@ -1,6 +1,9 @@
 <h1><%= "#{@user.first_name}" %>'s GymPage</h1>
 
-<h2>Workouts:</h2>
+<div>
+  <h2>Workouts:</h2>
   <% @user.workouts.each do |workout| %>
-    <%= link_to workout.formatted_date, workout_path(workout) %>
+    <%= link_to workout.formatted_date, workout_path(workout) %> -
+    <%= workout.description %>
   <% end %>
+</div>    
