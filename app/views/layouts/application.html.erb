@@ -9,18 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class=nav-bar>
-    <% if current_user %>
-      <%= link_to "Home Page", root_path if !current_page?(root_path) %> |
-      <%= link_to "My Page", current_user if !current_page?(current_user) %> | 
-      <%= link_to "Add New Workout", new_workout_path if !current_page?(new_workout_path) %> |
-      <%= link_to "Log Out", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Home Page", root_path %> | 
-      <%= link_to "Log In", login_path %> | 
-      <%= link_to "Sign Up", new_user_path %>
-    <% end %>
-  </div>
+    <div class=nav-bar>
+      <% if current_user %>
+        <%= link_to "Home Page", root_path if !current_page?(root_path) %> |
+        <%= link_to "My Page", current_user if !current_page?(current_user) %> | 
+        <%= link_to "Add New Workout", new_workout_path if !current_page?(new_workout_path) %> |
+        <%= link_to "Log Out", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Home Page", root_path %> | 
+        <%= link_to "Log In", login_path %> | 
+        <%= link_to "Sign Up", new_user_path %>
+      <% end %>
+    </div>
   
   <body>
     <!-- show flash message if any: -->
@@ -32,7 +32,14 @@
       <h3 style="color: red;"><%= flash[:error] %></<h3>
     <% end %>
     <!-- end -->
-
     <%= yield %>
   </body>
+
+  <footer>
+    <div class="footer-nav-bar">
+      <br><br>
+      <%= link_to "Back", :back if current_user %>
+    </div>
+  </footer>
+
 </html>
