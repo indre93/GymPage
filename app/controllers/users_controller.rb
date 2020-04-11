@@ -6,12 +6,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user 
+    if @user
       session[:user_id] = @user.id
       flash[:notice] = "Account was successfully created. Welcome to GymPage #{@user.first_name}!"
       redirect_to @user
     else
-      redirect_to new_user_path
+      render :new
     end
   end
 
