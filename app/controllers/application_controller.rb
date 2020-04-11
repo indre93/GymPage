@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def redirect_if_not_user
+  def redirect_if_not_a_user
     if !logged_in?
       flash[:error]= "Sorry! You must be logged in to view this page. Please log in or sign up."
       redirect_to root_path
