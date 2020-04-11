@@ -1,9 +1,9 @@
 <h1>Add a new workout:</h1>
 
-<%= form_for(:workout) do |f| %>
+<%= form_for(@workout) do |f| %>
   <div>
-    <%= f.label "Date Workedout" %>
-    <%= f.date_field :date_workedout %><br>
+    <%= f.label "Date Worked Out" %>
+    <%= f.date_select :date_workedout, order: [:month, :day, :year] %><br><br>
   </div> 
   <div>
     <%= f.label :description %><br>
@@ -11,22 +11,22 @@
   </div>
   <div>
     <h2>Select existing exercise: </h2>
-      <%= f.collection_select :exercise_ids, Exercise.all, :id, :name %>
+      <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
   </div>
   <div>
     <h2>Or add new exercise: </h2>
-      <%= f.fields_for :exercise do |exercise_attr| %>
-        <%= exercise_attr.label :name %>
-        <%= exercise_attr.text_field :name %>
+      <%= f.fields_for :exercises, @workout.exercises.build do |exercises_fields| %>
+        <%= exercises_fields.label :name %>
+        <%= exercises_fields.text_field :name %>
   
-        <%= exercise_attr.label :upper_body? %>
-        <%= exercise_attr.check_box :upper_body? %>
+        <%= exercises_fields.label :upper_body? %>
+        <%= exercises_fields.check_box :upper_body? %>
 
-        <%= exercise_attr.label :lower_body? %>
-        <%= exercise_attr.check_box :lower_body? %>
+        <%= exercises_fields.label :lower_body? %>
+        <%= exercises_fields.check_box :lower_body? %>
 
-        <%= exercise_attr.label :cardio? %>
-        <%= exercise_attr.check_box :cardio? %>
+        <%= exercises_fields.label :cardio? %>
+        <%= exercises_fields.check_box :cardio? %>
       <% end %>
   </div>
 
