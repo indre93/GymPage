@@ -4,40 +4,38 @@
     <title>GymPage</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-    <div class=nav-bar>
-      <% if logged_in? %>
-        <%= link_to "Home Page", root_path if !current_page?(root_path) %> |
-        <%= link_to "My Page", current_user if !current_page?(current_user) %> | 
-        <%= link_to "Add New Workout", new_workout_path if !current_page?(new_workout_path) %> |
-        <%= link_to "Log Out", logout_path, method: :delete %>
-      <% else %>
-        <%= link_to "Home Page", root_path %> | 
-        <%= link_to "Log In", login_path %> | 
-        <%= link_to "Sign Up", new_user_path %>
-      <% end %>
-    </div>
+  <header>
+    <nav>
+      <ul class="nav_links">
+        <% if logged_in? %>
+          <li><%= link_to "Home Page", root_path if !current_page?(root_path) %></li>
+          <li><%= link_to "My Workouts", current_user if !current_page?(current_user) %></li>
+          <li><%= link_to "All Exercises", exercises_path if !current_page?(exercises_path) %></li>
+          <li><%= link_to "Add New Workout", new_workout_path if !current_page?(new_workout_path) %></li>
+          <li><%= link_to "Add New Exercise", new_exercise_path if !current_page?(new_exercise_path) %></li>
+          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Home Page", root_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
   
-  <body>
-    <!-- show flash message if any: -->
-    <% if flash[:notice] %>
-      <h3 style="color: green;"><%= flash[:notice] %></h3>
-    <% end %>
-
-    <% if flash[:error] %>
-      <h3 style="color: red;"><%= flash[:error] %></<h3>
-    <% end %>
-    <!-- end -->
-    <%= yield %>
-  </body>
-
-  <footer class="footer-nav-bar">
-    <br><br>
-    <%= link_to "Back", :back if logged_in? %>
-  </footer>
-
+  <div class="wrapper">
+    <body>
+      <h3 style="color: green;"><%= flash[:notice] if flash[:notice] %></h3>
+      <h3 style="color: red;"><%= flash[:error] if flash[:error] %></<h3>
+      <%= yield %>
+      <br><br>
+      <div class="footer">
+        <%= link_to "Back", :back if logged_in? %>
+      </div>
+    </body>
+  </div>
 </html>
