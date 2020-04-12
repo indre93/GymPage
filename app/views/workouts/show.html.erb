@@ -1,19 +1,19 @@
-<h1><%= "#{@workout.user.first_name}" %>'s workout for <%= "#{@workout.formatted_date}" %></h1>
+<h1><%= "#{@workout.user.first_name}" %>'s workout</h1>
+
+<h2>For <%= "#{@workout.formatted_date}" %></h2>
 
 <div>
-  <h2>Description:</h2> 
-  <p><%= @workout.description %></p>
+  <strong>Description:</strong> 
+    <%= @workout.description %>
 </div>
 
-<div style="list-style-type: none;">
-  <h2>Exercises:</h2>
+<div>
+  <h3>Exercises:</h3>
     <% @workout.exercises.each do |exercise| %>
-      <ul><strong><%= exercise.name %></strong></ul>
-        <li><%= "Upper Body" if exercise.upper_body? %></li>
-        <li><%= "Lower Body" if exercise.lower_body? %></li>
-        <li><%= "Cardio" if exercise.cardio? %></li>
-      </ul>
+        <strong><%= exercise.name %></strong><br>
+        <%= "Upper Body" if exercise.upper_body? %><br>
+        <%= "Lower Body" if exercise.lower_body? %><br>
+        <%= "Cardio" if exercise.cardio? %><br>
+        <br>
     <% end %>
 </div>
-
-<br><br>
