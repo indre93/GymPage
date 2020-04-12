@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def welcome
+    @workouts = Workout.all
   end
 
   def new
