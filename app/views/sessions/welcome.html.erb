@@ -5,3 +5,12 @@
   <br>
   <%= button_to "Sign Up", new_user_path, method: :get %>
 <% end %>
+
+<div>
+  <h2>Recent Workouts Posted:</h2>
+  <% @workouts.each do |workout| %>
+    <%= link_to workout.formatted_date, workout_path(workout.id) %> -
+    <%= link_to workout.user.first_name, user_path(workout.user_id) %> -
+    <%= workout.description %><br><br>
+  <% end %>
+</div>   
