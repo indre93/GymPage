@@ -1,0 +1,9 @@
+<h1>All Exercises:</h1>
+
+<% @exercises.each do |exercise| %>
+  <strong><%= exercise.name %></strong> - 
+  added by: <%= link_to exercise.user.full_name, user_path(exercise.user_id) %><br>
+  <%= "Upper Body" if exercise.upper_body? %><br>
+  <%= "Lower Body" if exercise.lower_body? %><br>
+  <%= "Cardio" if exercise.cardio? %><br><br>
+<% end %>
