@@ -1,8 +1,8 @@
 class Workout < ApplicationRecord
   belongs_to :user
   has_many :exercises
-  has_many :comments
-  has_many :users, through: :comments
+  has_many :users, through: :exercises
+
 
   def formatted_date
     @date = self.date_workedout
