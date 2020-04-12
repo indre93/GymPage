@@ -1,4 +1,4 @@
-<h1>Add a new workout:</h1>
+<h1>Add a New Workout:</h1>
 
 <%= form_for(@workout) do |f| %>
   <div>
@@ -7,14 +7,14 @@
   </div> 
   <div>
     <%= f.label :description %><br>
-    <%= f.text_area :description, cols: "55", rows: "5" %><br><br>
+    <%= f.text_area :description, cols: "70", rows: "3" %><br>
   </div>
   <div>
-    <h2>Select existing exercise: </h2>
-      <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
+    <p>Select existing exercise: </p>
+    <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
   </div>
   <div>
-    <h2>Or add new exercise: </h2>
+    <p>Or add new exercise: </p>
       <%= f.fields_for :exercises, @workout.exercises.build do |exercises_fields| %>
         <%= exercises_fields.label :name %>
         <%= exercises_fields.text_field :name %>
@@ -27,10 +27,13 @@
 
         <%= exercises_fields.label :cardio? %>
         <%= exercises_fields.check_box :cardio? %>
+
+        <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
       <% end %>
   </div>
-
   <br><br>
 
-  <%= f.submit "Add Workout" %>
+  <div class="submit">
+    <%= f.submit "Add Workout" %>
+  </div>
 <% end %>
