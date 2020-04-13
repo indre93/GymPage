@@ -5,5 +5,6 @@
   <% @user.workouts.each do |workout| %>
     <%= link_to workout.formatted_date, workout_path(workout) %> -
     <%= workout.description %><br>
+    <%= workout.duration %><br>
   <% end %>
 </div>    
