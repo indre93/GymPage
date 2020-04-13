@@ -15,7 +15,11 @@
   </div>
   <div>
     <p>Select existing exercise: </p>
-    <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :name %>
+    <%= f.collection_check_boxes(:exercise_ids, Exercise.all, :id, :name) do |item| %>
+      <% item.label do %>
+        <%= item.check_box + item.text %><br>
+      <% end %>
+    <% end %>
   </div>
   <div>
     <p>Or add new exercise: </p>
