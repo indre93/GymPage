@@ -1,0 +1,15 @@
+<h1>Add New Exercise</h1>
+
+<%= form_for @exercise do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %><br><br>
+
+  <%= f.label :category %>
+  <%= f.select :category, options_for_select(category_options), prompt: "Select a Category" %><br><br>
+
+  <br>
+  
+<div class="submit"> 
+  <%= f.submit "Add Exercise" %>
+</div>
+<% end %>
