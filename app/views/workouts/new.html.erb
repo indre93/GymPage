@@ -2,9 +2,13 @@
 
 <%= form_for(@workout) do |f| %>
   <div>
-    <%= f.label "Date Worked Out" %>
-    <%= f.date_select :date_workedout, order: [:month, :day, :year] %><br><br>
-  </div> 
+    <%= f.label :date %>
+    <%= f.date_select :date, order: [:month, :day, :year] %><br><br>
+  </div>
+  <div>
+    <%= f.label :duration %><br>
+    <%= f.text_field :duration, size: "20" %><br><br>
+  </div>
   <div>
     <%= f.label :description %><br>
     <%= f.text_area :description, cols: "70", rows: "3" %><br>
@@ -15,22 +19,15 @@
   </div>
   <div>
     <p>Or add new exercise: </p>
-      <%= f.fields_for :exercises, @workout.exercises.build do |exercises_fields| %>
-        <%= exercises_fields.label :name %>
-        <%= exercises_fields.text_field :name %>
-  
-        <%= exercises_fields.label :upper_body? %>
-        <%= exercises_fields.check_box :upper_body? %>
-
-        <%= exercises_fields.label :lower_body? %>
-        <%= exercises_fields.check_box :lower_body? %>
-
-        <%= exercises_fields.label :cardio? %>
-        <%= exercises_fields.check_box :cardio? %>
-
-        <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
-      <% end %>
+    <%= f.fields_for :exercises, @workout.exercises.build do |exercises_fields| %>
+      <%= exercises_fields.label :name %>
+      <%= exercises_fields.text_field :name %>
+      <%= exercises_fields.label :category %>
+      <%= exercises_fields.select :category, options_for_select(category_options), prompt: "Select a Category" %>
+      <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
+    <% end %>
   </div>
+
   <br><br>
 
   <div class="submit">
