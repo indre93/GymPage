@@ -1,7 +1,8 @@
 class Exercise < ApplicationRecord
   belongs_to :user
-  belongs_to :workout
+  has_many :routines
+  has_many :workouts, through: :routines
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, :category, presence: true
+  validates :name, :category, uniqueness: true
 end

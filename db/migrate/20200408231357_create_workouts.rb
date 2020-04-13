@@ -1,11 +1,12 @@
 class CreateWorkouts < ActiveRecord::Migration[6.0]
   def change
     create_table :workouts do |t|
-      t.belongs_to :user, index: true
+      t.references :user, foreign_key: true
+      t.datetime :date
       t.text :description
-      t.datetime :date_workedout
+      t.integer :duration
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

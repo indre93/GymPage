@@ -10,30 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_044851) do
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "workout_id"
-    t.text "content"
-    t.datetime "posted_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_comments_on_user_id"
-    t.index ["workout_id"], name: "index_comments_on_workout_id"
-  end
+ActiveRecord::Schema.define(version: 2020_04_13_043212) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "workout_id"
     t.string "name"
-    t.boolean "upper_body?"
-    t.boolean "lower_body?"
-    t.boolean "cardio?"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_exercises_on_user_id"
-    t.index ["workout_id"], name: "index_exercises_on_workout_id"
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.integer "workout_id"
+    t.integer "exercise_id"
+    t.string "caption"
+    t.integer "sets"
+    t.integer "reps"
+    t.integer "max_weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_id"], name: "index_routines_on_exercise_id"
+    t.index ["workout_id"], name: "index_routines_on_workout_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,11 +45,16 @@ ActiveRecord::Schema.define(version: 2020_04_10_044851) do
 
   create_table "workouts", force: :cascade do |t|
     t.integer "user_id"
+    t.datetime "date"
     t.text "description"
-    t.datetime "date_workedout"
+    t.integer "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
+  add_foreign_key "exercises", "users"
+  add_foreign_key "routines", "exercises"
+  add_foreign_key "routines", "workouts"
+  add_foreign_key "workouts", "users"
 end

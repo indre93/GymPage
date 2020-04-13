@@ -1,12 +1,13 @@
 class Workout < ApplicationRecord
   belongs_to :user
-  has_many :exercises
-  has_many :users, through: :exercises
+  has_many :routines
+  has_many :exercises, through: :routines
 
-  validates :date_workedout, :description, presence: true
+  validates :date, :description, :duration, presence: true
+  validates :date, uniqueness: true
 
   def formatted_date
-    @date = self.date_workedout
+    @date = self.date
     @date.strftime("%A, %B #{@date.day.ordinalize}")
   end
 end
