@@ -2,10 +2,10 @@
 
 <%= form_for @exercise do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, required: true %><br><br>
+  <%= f.text_field :name, required: true, size: "40" %><br><br>
 
   <%= f.label :category %>
-  <%= f.select :category, options_for_select(category_options), prompt: "Select a Category" %><br><br>
+  <%= f.select :category, options_for_select(category_options), include_blank: true %><br><br>
 
   <br>
   
