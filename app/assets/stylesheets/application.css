@@ -65,7 +65,7 @@ body {
   display: inline-block;
 }
 
-.footer, h1, h2, .submit {
+.footer, h1, h2, .submit, .center {
   text-align: center;
 }
 
