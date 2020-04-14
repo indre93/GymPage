@@ -1,9 +1,9 @@
 <h1>Log In!</h1>
 
-<div>
+<div class="center">
   <%= form_for(:user) do |f| %>
     <%= f.label :email %>
-    <%= f.email_field :email, required: true, size: "30" %>
+    <%= f.email_field :email, required: true %>
 
     <%= f.label :password %>
     <%= f.password_field :password, required: true %>
