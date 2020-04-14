@@ -1,7 +1,10 @@
 <h1>All Exercises:</h1>
 
-<% @exercises.each do |exercise| %>
-  <strong><%= link_to exercise.name, exercise %></strong> - 
-  Added by: <%= link_to full_name(exercise.user), user_path(exercise.user_id) %> - 
-  <%= exercise.category %><br><br>
-<% end %>
+<div class="center">
+  <% @exercises.order(created_at: :desc).each do |exercise| %>
+    <strong><%= link_to exercise.name, exercise %></strong><br>
+    <%= exercise.category %><br>
+    Added by <%= link_to full_name(exercise.user), user_path(exercise.user_id) %> - 
+    <%= formatted_created_at(exercise) %><br><br>
+  <% end %>
+</div>
