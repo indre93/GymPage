@@ -4,7 +4,7 @@ class CreateWorkouts < ActiveRecord::Migration[6.0]
       t.references :user, foreign_key: true
       t.datetime :date
       t.text :description
-      t.integer :duration
+      t.string :duration
 
       t.timestamps
     end

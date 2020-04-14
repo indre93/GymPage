@@ -6,7 +6,7 @@ class CreateRoutines < ActiveRecord::Migration[6.0]
       t.string :caption
       t.integer :sets
       t.integer :reps
-      t.integer :max_weight
+      t.float :max_weight
 
       t.timestamps
     end

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_043212) do
     t.string "caption"
     t.integer "sets"
     t.integer "reps"
-    t.integer "max_weight"
+    t.float "max_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exercise_id"], name: "index_routines_on_exercise_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_043212) do
     t.integer "user_id"
     t.datetime "date"
     t.text "description"
-    t.integer "duration"
+    t.string "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_workouts_on_user_id"
