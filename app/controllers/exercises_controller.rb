@@ -1,7 +1,7 @@
 class ExercisesController < ApplicationController
 
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.all.includes(:user)
     redirect_if_not_a_user
   end
 
