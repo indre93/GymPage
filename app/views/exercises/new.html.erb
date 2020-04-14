@@ -1,15 +1,16 @@
 <h1>Add New Exercise</h1>
 
-<%= form_for @exercise do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true, size: "40" %><br><br>
+<div class="center"> 
+  <%= form_for @exercise do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, size: "40" %><br><br>
 
-  <%= f.label :category %>
-  <%= f.select :category, options_for_select(category_options), include_blank: true %><br><br>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select(category_options), include_blank: true %><br><br>
 
-  <br>
-  
-<div class="submit"> 
-  <%= f.submit "Add Exercise" %>
+    <br>
+
+    <%= f.submit "Add Exercise" %>
+    
+  <% end %>
 </div>
-<% end %>

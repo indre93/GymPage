@@ -1,13 +1,11 @@
 <h1><%= "#{@workout.user_first_name}" %>'s workout</h1>
 
-<h2>For <%= "#{@workout.formatted_date}" %></h2>
-
 <div>
+  <h2>For <%= "#{@workout.formatted_date}" %></h2>
+
   <strong>Description:</strong> 
   <%= @workout.description %><br>
-</div>
 
-<div>
   <p>Duration:</p> 
   <%= @workout.duration %>
 </div>

@@ -30,9 +30,8 @@
   <div class="wrapper">
     <body>
       <h3 style="color: green;"><%= flash[:notice] if flash[:notice] %></h3>
-      <h3 style="color: red;"><%= flash[:error] if flash[:error] %></<h3>
+      <h3 style="color: red;"><%= flash[:error] if flash[:error] %></h3>
       <%= yield %>
-      <br><br>
       <div class="footer">
         <%= link_to "Back", :back if logged_in? %>
       </div>

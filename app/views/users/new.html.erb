@@ -1,24 +1,27 @@
 <h1>Sign Up!</h1>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, required: true %><br><br>
+<div>
+  <%= form_for(@user) do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, required: true %><br><br>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, required: true %><br><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, required: true %><br><br>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, required: true %><br><br>
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true %><br><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, required: true %><br><br>
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true %><br><br>
 
-  <%= f.label :password_confirmation, "Password Confirmation" %>
-  <%= f.password_field :password_confirmation, required: true %><br><br>
+    <%= f.label :password_confirmation, "Password Confirmation" %>
+    <%= f.password_field :password_confirmation, required: true %><br><br>
 
-  <br>
+    <br>
   
-<div class="submit"> 
-  <%= f.submit "Log In" %>
+  <div class="center">
+    <%= f.submit %>
+  </div>
+
+  <% end %>
 </div>
-<% end %>

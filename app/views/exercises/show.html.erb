@@ -1,8 +1,8 @@
-<h1>Exercise Info: </h1>
+<h1>Exercise Details</h1>
 
 <div class="center">
   <h3><%= @exercise.name %></h3>
-  <p><%= @exercise.category %></p>
+  <%= @exercise.category %><br>
   Added by <%= link_to full_name(@exercise.user), user_path(@exercise.user_id) %> - 
   <%= formatted_created_at(@exercise) %>
 </div>
