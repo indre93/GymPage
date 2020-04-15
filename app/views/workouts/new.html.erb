@@ -19,20 +19,21 @@
   <div class="exercises-selection">
     <fieldset>
       <legend><%= f.label :exercise_ids, "Select Exercises" %></legend>  
-      <%= f.collection_check_boxes(:exercise_ids, Exercise.all.order(category: :asc), :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:exercise_ids, Exercise.all.order(name: :asc), :id, :name) do |b| %>
         <div><%= b.check_box %><%= b.label { b.text } %></div>
       <% end %>
 
       <h3>Or Add new exercises: </h3>
       <%= f.fields_for :exercises do |exercises_fields| %>
-        <%= exercises_fields.label :name %>
+        <%= exercises_fields.label :name, "Exercise Name:" %>
         <%= exercises_fields.text_field :name, size: "25" %><br>
-        <%= exercises_fields.label :category %>
-        <%= exercises_fields.select :category, options_for_select(category_options), include_blank: true %><br>
+        <%= exercises_fields.label :category, "Category:" %>
+        <%= exercises_fields.select :category, options_for_select(category_options), include_blank: true %>
         <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
+        <br><br><br>
       <% end %>
 
-    <br><br>
+    <br>
 
     <div class="center"><%= f.submit "Add Workout" %></div>
 

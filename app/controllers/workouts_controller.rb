@@ -2,6 +2,7 @@ class WorkoutsController < ApplicationController
 
   def new
     @workout = Workout.new
+    3.times {@workout.exercises.build}
   end
 
   def create
@@ -21,7 +22,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:date, :duration, :description, exercise_ids: [])
+    params.require(:workout).permit(:date, :duration, :description, exercise_ids: [], exercises_attributes: [:name, :category, :user_id])
   end
 
   def find_workout
