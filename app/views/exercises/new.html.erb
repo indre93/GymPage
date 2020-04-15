@@ -6,11 +6,10 @@
     <%= f.text_field :name, required: true, size: "40" %><br><br>
 
     <%= f.label :category %>
-    <%= f.select :category, options_for_select(category_options), include_blank: true %><br><br>
-
-    <br>
+    <%= f.select :category, options_for_select(category_options), include_blank: true %><br>
+    
+    <br><br>
 
     <%= f.submit "Add Exercise" %>
-    
   <% end %>
 </div>
