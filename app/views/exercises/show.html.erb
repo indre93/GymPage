@@ -9,9 +9,10 @@
   
     <br><br>
 
-    <legend>Performed this exercise:</legend> 
+    <legend>Performed this exercise:</legend>
+    <p>Number of users: <%= @exercise.workouts.size %></p>
     <% @exercise.workouts.each do |workout| %>
-      <%= link_to full_name(workout.user), user_path(workout.user) %><br>
+      <%= link_to full_name(workout.user), user_path(workout.user) %><br> 
     <% end %>
   </div>
 </fieldset>
