@@ -1,17 +1,13 @@
-<h1><%= first_name(@workout.user) %>'s workout</h1>
+<h1><%= first_name(@workout.user) %>'s workout for</h1>
 
 <div class="center">
   <h2><%= workout_date(@workout) %></h2>
-
-  <strong>Description: </strong> 
   <%= @workout.description %><br>
-
   <strong>Duration: </strong> 
   <%= @workout.duration %><br><br>
 </div>
 
 <div>
-  <h3>Exercises Performed:</h3>
   <% @workout.exercises.each do |exercise| %>
     <strong><%= link_to exercise.name, exercise_path(exercise) %></strong><br>
     <%= exercise.category %><br><br>
