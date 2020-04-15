@@ -3,38 +3,39 @@
 <%= form_for(@workout) do |f| %>
   <div>
     <%= f.label :date %>
-    <%= f.date_select :date, order: [:month, :day, :year] %><br><br>
+    <%= f.date_field :date %><br><br>
   </div>
+
   <div>
-    <%= f.label :duration %><br>
+    <%= f.label :duration, "Duration (Please include hours and/or minutes)" %>
     <%= f.text_field :duration, size: "20" %><br><br>
   </div>
+
   <div>
     <%= f.label :description %><br>
     <%= f.text_area :description, cols: "70", rows: "3" %><br>
   </div>
-  <div>
-    <p>Select existing exercise: </p>
-    <%= f.collection_check_boxes(:exercise_ids, Exercise.all, :id, :name) do |item| %>
-      <% item.label do %>
-        <%= item.check_box + item.text %><br>
+
+  <div class="exercises-selection">
+    <fieldset>
+      <legend><%= f.label :exercise_ids, "Select Exercises" %></legend>  
+      <%= f.collection_check_boxes(:exercise_ids, Exercise.all.order(category: :asc), :id, :name) do |b| %>
+        <div><%= b.check_box %><%= b.label { b.text } %></div>
       <% end %>
-    <% end %>
-  </div>
-  <div>
-    <p>Or add new exercise: </p>
-    <%= f.fields_for :exercises, @workout.exercises.build do |exercises_fields| %>
-      <%= exercises_fields.label :name %>
-      <%= exercises_fields.text_field :name %>
-      <%= exercises_fields.label :category %>
-      <%= exercises_fields.select :category, options_for_select(category_options), prompt: "Select a Category" %>
-      <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
-    <% end %>
-  </div>
 
-  <br><br>
+      <h3>Or Add new exercises: </h3>
+      <%= f.fields_for :exercises do |exercises_fields| %>
+        <%= exercises_fields.label :name %>
+        <%= exercises_fields.text_field :name, size: "25" %><br>
+        <%= exercises_fields.label :category %>
+        <%= exercises_fields.select :category, options_for_select(category_options), include_blank: true %><br>
+        <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
+      <% end %>
 
-  <div class="submit">
-    <%= f.submit "Add Workout" %>
+    <br><br>
+
+    <div class="center"><%= f.submit "Add Workout" %></div>
+
+    </fieldset>
   </div>
 <% end %>

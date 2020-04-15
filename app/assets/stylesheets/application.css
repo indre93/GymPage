@@ -72,10 +72,11 @@ h1 {
   text-align: left;
 }
 
-.checkboxes {
+.exercises-selection {
   text-align: left;
-  padding: 30px;
-  margin: 10px auto;
+  padding: 0px;
+  margin: 3px auto;
+  margin-bottom: 30px;
 }
 
 legend {
