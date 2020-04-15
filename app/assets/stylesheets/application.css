@@ -68,6 +68,10 @@ h1 {
   text-align: center;
 }
 
+.left {
+  text-align: left;
+}
+
 .checkboxes {
   text-align: left;
   padding: 30px;
@@ -80,6 +84,7 @@ legend {
   color: white;
   margin: 10px auto;
   padding: 3px;
+  font-size: 20px;
 }
 
 .footer {
