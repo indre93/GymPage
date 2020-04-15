@@ -9,10 +9,11 @@
 </div>
 
 <div>
-  <h2>All Workouts Posted:</h2>
-  <% @workouts.each do |workout| %>
-    <%= link_to workout.formatted_date, workout_path(workout.id) %> -
-    <%= link_to workout.user.first_name, user_path(workout.user_id) %> -
-    <%= workout.description %><br><br>
+  <h2>Recent Workout Posts: </h2>
+  <% @workouts.order(created_at: :desc).each do |workout| %>
+    <big><%= link_to full_name(workout.user), user_path(workout.user_id) %></big> -
+    <%= posted_at(workout) %><br>
+    <%= workout.description %> -
+    <%= link_to "View more", workout_path(workout.id) %><br><br>
   <% end %>
 </div>   
