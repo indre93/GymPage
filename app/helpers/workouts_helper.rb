@@ -1,8 +1,8 @@
 module WorkoutsHelper
-    
-  def formatted_date
-    @date = self.date
-    @date.strftime("%A, %B #{@date.day.ordinalize}")
+
+  def workout_date(workout)
+    new_date = workout.date
+    new_date.strftime("%A, %B #{new_date.day.ordinalize}")
   end
-  
+
 end
