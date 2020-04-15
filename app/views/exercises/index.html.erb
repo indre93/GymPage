@@ -5,6 +5,6 @@
     <strong><%= link_to exercise.name, exercise %></strong><br>
     <%= exercise.category %><br>
     Added by <%= link_to full_name(exercise.user), user_path(exercise.user_id) %> - 
-    <%= formatted_created_at(exercise) %><br><br>
+    <%= posted_at(exercise) %><br><br>
   <% end %>
 </div>
