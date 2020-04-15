@@ -1,8 +1,17 @@
 <h1>Exercise Details</h1>
 
-<div class="center">
-  <h3><%= @exercise.name %></h3>
-  <%= @exercise.category %><br>
-  Added by <%= link_to full_name(@exercise.user), user_path(@exercise.user_id) %> - 
-  <%= formatted_created_at(@exercise) %>
-</div>
+<fieldset>
+  <legend><%= @exercise.name %></legend>
+  <div class="center">
+    <strong><%= @exercise.category %></strong><br>
+    Added by <%= link_to full_name(@exercise.user), user_path(@exercise.user_id) %> - 
+    <%= posted_at(@exercise) %>
+  
+    <br><br>
+
+    <legend>Performed this exercise:</legend> 
+    <% @exercise.workouts.each do |workout| %>
+      <%= link_to full_name(workout.user), user_path(workout.user) %><br>
+    <% end %>
+  </div>
+</fieldset>
