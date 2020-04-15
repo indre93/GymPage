@@ -4,7 +4,7 @@ module ExercisesHelper
     ["Upper Body Training", "Lower Body Training", "Cardiovascular Training", "Resistance Training", "Flexibility Training"]
   end
 
-  def formatted_posted_at(exercise)
+  def posted_at(exercise)
     date = exercise.created_at
     date.strftime("%A, %B #{date.day.ordinalize} at %-I:%M%P")
   end
