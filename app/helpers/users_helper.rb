@@ -4,7 +4,7 @@ module UsersHelper
     "#{user.first_name} #{user.last_name}"
   end
 
-  def user_first_name
+  def first_name(user)
     user.first_name
   end
   
