@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def welcome
-    @workouts = Workout.all
+    @workouts = Workout.all.includes(:user)
   end
 
   def new
