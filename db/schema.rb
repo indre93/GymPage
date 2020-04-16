@@ -24,10 +24,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_043212) do
   create_table "routines", force: :cascade do |t|
     t.integer "workout_id"
     t.integer "exercise_id"
-    t.string "caption"
-    t.integer "sets"
-    t.integer "reps"
-    t.float "max_weight"
+    t.text "caption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exercise_id"], name: "index_routines_on_exercise_id"
