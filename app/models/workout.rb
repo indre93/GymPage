@@ -2,15 +2,15 @@ class Workout < ApplicationRecord
   belongs_to :user
   has_many :routines
   has_many :exercises, through: :routines
+  accepts_nested_attributes_for :routines, reject_if: :reject_routines
 
   validates :date, :description, :duration, presence: true
 
-  def exercises_attributes=(attributes)
-    attributes.values.each do |value| 
-      if !value["name"].blank? && !value["category"].blank?
-        self.exercises << Exercise.find_or_create_by(value) 
-      end
-    end
+  # Writer method that creates each routine and builds an exercise off of it
+  # routine_params = {"caption"=>"3 sets of 15", "exercise_attributes"=>{"name"=>"Push-Up", "category"=>"Resistance Training", "user_id"=>"3"}}
+
+  def reject_routines(routine_params)
+    routine_params["caption"].empty? && routine_params["exercise_attributes"].values.any?(&:empty?)
   end
 
 end
