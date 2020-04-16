@@ -1,42 +1,38 @@
 <h1>Add a New Workout:</h1>
 
 <%= form_for(@workout) do |f| %>
-  <div>
-    <%= f.label :date %>
-    <%= f.date_field :date %><br><br>
-  </div>
-
-  <div>
-    <%= f.label :duration, "Duration (Please include hours and/or minutes)" %>
-    <%= f.text_field :duration, size: "20" %><br><br>
-  </div>
-
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_area :description, cols: "70", rows: "3" %><br>
-  </div>
+  <%= f.label :date %>
+  <%= f.date_field :date %><br><br>
+  <%= f.label :duration, "Duration (Please include hours and/or minutes)" %>
+  <%= f.text_field :duration, size: "20" %><br><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, cols: "70", rows: "3" %><br>
 
   <div class="exercises-selection">
     <fieldset>
       <legend><%= f.label :exercise_ids, "Select Exercises" %></legend>  
-      <%= f.collection_check_boxes(:exercise_ids, Exercise.all.order(name: :asc), :id, :name) do |b| %>
-        <div><%= b.check_box %><%= b.label { b.text } %></div>
-      <% end %>
-
-      <h3>Or Add new exercises: </h3>
-      <%= f.fields_for :exercises do |exercises_fields| %>
-        <%= exercises_fields.label :name, "Exercise Name:" %>
-        <%= exercises_fields.text_field :name, size: "25" %><br>
-        <%= exercises_fields.label :category, "Category:" %>
-        <%= exercises_fields.select :category, options_for_select(category_options), include_blank: true %>
-        <%= exercises_fields.hidden_field :user_id, value: current_user.id %>
-        <br><br><br>
-      <% end %>
-
+        <%= f.collection_check_boxes(:exercise_ids, Exercise.all.order(name: :asc), :id, :name) do |b| %>
+          <div><%= b.check_box %><%= b.label { b.text } %></div>
+        <% end %>
+    </fieldset> 
+  </div>
+  
+  <h3>Or Add new exercises: </h3>
+  <%= f.fields_for :routines do |routines_fields| %>
+    <%= routines_fields.fields_for :exercise do |exercises_fields| %>
+      <%= exercises_fields.label :name, "Exercise:" %>
+      <%= exercises_fields.text_field :name, size: "25" %>
+      <%= exercises_fields.label :category, "Category:" %>
+      <%= exercises_fields.select :category, options_for_select(category_options), include_blank: true %>
+    <% end %>
+    
     <br>
 
-    <div class="center"><%= f.submit "Add Workout" %></div>
+    <%= routines_fields.label :caption, "Caption:" %>
+    <%= routines_fields.text_field :caption, size: "25" %><br><br>
+  <% end %>
 
-    </fieldset>
-  </div>
+  <br><br>
+  
+  <div class="center"><%= f.submit "Add Workout" %></div>
 <% end %>
