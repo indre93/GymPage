@@ -7,9 +7,11 @@
   <%= @workout.duration %><br><br>
 </div>
 
-<div>
-  <% @workout.exercises.each do |exercise| %>
-    <strong><%= link_to exercise.name, exercise_path(exercise) %></strong><br>
-    <%= exercise.category %><br><br>
+<div class="exercise-routine">
+  <% @workout.routines.each do |routine| %>
+    <strong><%= link_to routine.exercise.name, exercise_path(routine.exercise_id) %></strong> -
+    <%= routine.exercise.category %><br>
+    <%= routine.caption %>
+    <br><br>
   <% end %>
 </div>
