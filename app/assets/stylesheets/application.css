@@ -15,34 +15,36 @@
  */
 
 nav {
-  text-align: center;
-  padding: 3%;
-  max-width: auto;
-  margin: 50px 0px 50px 0px;
+  box-shadow: 0px 0px 15px 15px rgb(0, 0, 0);
+  margin: 20px 0px 0px 0px; 
   background-image: url('dark-gray.jpg');
   box-sizing: border-box;
-  box-shadow: 0px 30px 30px 30px rgb(0, 0, 0);
+  text-align: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 nav li {
   list-style-type: none;
   text-decoration: none;
-  margin: 0;
-  padding: 20px 20px 20px 20px;
+  padding: 2px 2px 2px 2px;
   display: inline-flex;
 }
 
 nav a {
   box-sizing: border-box;
-  box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
   width: 180px;
   background-image: url('light-gray.jpg');
   color: white;
   text-decoration: none;
   text-align: center;
-  font-family: lucida;
+  font-family: lato;
+  font-weight: bolder;
   text-transform: uppercase;
-  padding: 7px;
+  padding: 3px;
 }
 
 nav li a:hover {
@@ -53,25 +55,27 @@ nav li a:hover {
 
 nav li.active {
   box-sizing: border-box;
-  box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
-  width: 180px;
+  box-shadow: 0px 0px 10px 10px rgb(0, 0, 0);
+  width: 210px;
   background-image: url('dark-gray.jpg');
-  color: rgba(255, 255, 255, 0.299);
+  color: white;
   text-transform: uppercase;
   padding: 7px 0px 7px 20px;
   display: inline-flex;
-  margin: 15px;
+  margin: 10px;
 }
 
 body {
+  position: relative;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
   color: black;
   line-height: 25px;
-  margin: 0px auto;
-  font-family: lucida;
+  font-size: 17px;
+  margin: 200px auto;
   background-image: url('gray-brick.jpg');
+  font-family: 'lato';
 }
 
 .wrapper {
@@ -81,7 +85,7 @@ body {
   background-position: center;
   box-shadow: 0px 50px 50px rgba(0,0,0);
   margin: 0px auto;
-  max-width: 700px;
+  max-width: 900px;
   padding: 2%; /* 18px / 800px */
   text-align: left;
   font-weight: bolder;
@@ -91,7 +95,7 @@ h1 {
   background-image: url('dark-gray.jpg');
   box-shadow: 0 5px 5px rgb(0, 0, 0);
   padding: 2%;
-  margin: 25px auto;
+  margin: 5px auto;
   margin-bottom: 50px;
   max-width: 800px;
   color: white;
