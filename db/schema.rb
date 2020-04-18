@@ -22,12 +22,14 @@ ActiveRecord::Schema.define(version: 2020_04_13_043212) do
   end
 
   create_table "routines", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "workout_id"
     t.integer "exercise_id"
     t.text "caption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exercise_id"], name: "index_routines_on_exercise_id"
+    t.index ["user_id"], name: "index_routines_on_user_id"
     t.index ["workout_id"], name: "index_routines_on_workout_id"
   end
 
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_043212) do
 
   add_foreign_key "exercises", "users"
   add_foreign_key "routines", "exercises"
+  add_foreign_key "routines", "users"
   add_foreign_key "routines", "workouts"
   add_foreign_key "workouts", "users"
 end

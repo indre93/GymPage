@@ -3,8 +3,8 @@ katie = User.create!(first_name: "Katie", last_name: "Johnson", email: "katie@em
 john = User.create!(first_name: "John", last_name: "Smith", email: "john@email.com", password: "password")
 
 # Workouts:
-katies_workout = katie.workouts.create!(date: "04/10/2020", duration: "2 hours", description: "Today's workout consisted of a little bit of everything")
-johns_workout = john.workouts.create!(date: "04/09/2020", duration: "1 hour and 30 minutes", description: "Simple cardio day. Decided to take a day off from weight lifting.")
+katies_workout = katie.workouts.create!(date: "10/04/2020", duration: "2 hours", description: "Today's workout consisted of a little bit of everything")
+johns_workout = john.workouts.create!(date: "09/04/2020", duration: "1 hour and 30 minutes", description: "Simple cardio day. Decided to take a day off from weight lifting.")
 
 # Exercises:
 Exercise.create!(
@@ -39,29 +39,29 @@ Exercise.create!(
 # Routines:
 Routine.create!(
   [
-    {caption: "3 sets / 10 reps", workout_id: 1, exercise_id: 1},
-    {caption: "5 sets / 5 reps", workout_id: 1, exercise_id: 2},
-    {caption: "3 sets / 10 reps", workout_id: 1, exercise_id: 3},
-    {caption: "2 sets / 15 reps", workout_id: 1, exercise_id: 4},
+    {caption: "3 sets / 10 reps", user_id: 1, workout_id: 1, exercise_id: 1},
+    {caption: "5 sets / 5 reps", user_id: 1, workout_id: 1, exercise_id: 2},
+    {caption: "3 sets / 10 reps", user_id: 1, workout_id: 1, exercise_id: 3},
+    {caption: "2 sets / 15 reps", user_id: 1, workout_id: 1, exercise_id: 4},
 
-    {caption: "3 sets / 10 reps", workout_id: 1, exercise_id: 5},
-    {caption: "3 sets / 5 reps", workout_id: 1, exercise_id: 6},
-    {caption: "3 sets / 15 reps", workout_id: 1, exercise_id: 7},
-    {caption: "5 sets / 10 reps", workout_id: 1, exercise_id: 8},
+    {caption: "3 sets / 10 reps", user_id: 1, workout_id: 1, exercise_id: 5},
+    {caption: "3 sets / 5 reps", user_id: 1, workout_id: 1, exercise_id: 6},
+    {caption: "3 sets / 15 reps", user_id: 1, workout_id: 1, exercise_id: 7},
+    {caption: "5 sets / 10 reps", user_id: 1, workout_id: 1, exercise_id: 8},
 
-    {caption: "3 sets / 10 reps", workout_id: 1, exercise_id: 9},
-    {caption: "3 sets of 2 minutes", workout_id: 2, exercise_id: 10},
-    {caption: "3 sets of one minute", workout_id: 2, exercise_id: 11},
-    {caption: "5 sets of 15", workout_id: 1, exercise_id: 12},
+    {caption: "3 sets / 10 reps", user_id: 1, workout_id: 1, exercise_id: 9},
+    {caption: "3 sets of 2 minutes", user_id: 2, workout_id: 2, exercise_id: 10},
+    {caption: "3 sets of one minute", user_id: 2, workout_id: 2, exercise_id: 11},
+    {caption: "5 sets of 15", user_id: 1, workout_id: 1, exercise_id: 12},
 
-    {caption: "5 sets / 10 reps", workout_id: 2, exercise_id: 13},
-    {caption: "Did it for 5 minutes", workout_id: 2, exercise_id: 14},
-    {caption: "5 sets / 10 reps", workout_id: 2, exercise_id: 15},
-    {caption: "3 sets of 5 reps", workout_id: 2, exercise_id: 16},
+    {caption: "5 sets / 10 reps", user_id: 2, workout_id: 2, exercise_id: 13},
+    {caption: "Did it for 5 minutes", user_id: 2, workout_id: 2, exercise_id: 14},
+    {caption: "5 sets / 10 reps", user_id: 2, workout_id: 2, exercise_id: 15},
+    {caption: "3 sets of 5 reps", user_id: 2, workout_id: 2, exercise_id: 16},
 
-    {caption: "Spent at least 5 minutes doing this, or at least tried to!", workout_id: 1, exercise_id: 17},
-    {caption: "Tried this new movement!", workout_id: 2, exercise_id: 18},
-    {caption: "First time trying this and loved it!", workout_id: 2, exercise_id: 19},
-    {caption: "Definetely felt yesterdays workout while doing this", workout_id: 2, exercise_id: 20},
+    {caption: "Spent at least 5 minutes doing this, or at least tried to!", user_id: 1, workout_id: 1, exercise_id: 17},
+    {caption: "Tried this new movement!", user_id: 2, workout_id: 2, exercise_id: 18},
+    {caption: "First time trying this and loved it!", user_id: 2, workout_id: 2, exercise_id: 19},
+    {caption: "Definetely felt yesterdays workout while doing this", user_id: 2, workout_id: 2, exercise_id: 20},
   ]
 )
