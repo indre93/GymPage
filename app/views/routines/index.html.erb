@@ -1,0 +1,11 @@
+<h1>All Routines Completed</h1>
+
+<div class="exercise-routine">
+  <% @routines.order(created_at: :desc).each do |routine| %>
+    <big><%= link_to routine_exercise(routine), exercise_path(routine.exercise) %></big><br>
+    <%= link_to full_name(routine.workout.user), user_path(routine.workout.user) %> -
+    <%= link_to workout_date(routine.workout), workout_path(routine.workout) %><br>
+    "<%= routine.caption %>"
+    <br><br>
+  <% end %>
+</div>
