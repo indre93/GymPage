@@ -9,10 +9,8 @@
   
     <br><br>
 
-    <legend>Performed this exercise:</legend>
-    <p>Number of users: <%= @exercise.workouts.size %></p>
-    <% @exercise.workouts.each do |workout| %>
-      <%= link_to full_name(workout.user), user_path(workout.user) %><br> 
-    <% end %>
+    <legend><%= @exercise.workouts.size %> users have completed this exercise!</legend><br>
+    <%= link_to "View routines completed", exercise_routines_path(@exercise) %>
+    <br><br>
   </div>
 </fieldset>

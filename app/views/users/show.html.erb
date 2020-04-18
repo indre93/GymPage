@@ -1,16 +1,15 @@
 <h1><%= @user.first_name %>'s GymPage</h1>
 
-<h2>Workouts</h2>
 <div class="center">
   <% @user.workouts.order(date: :desc).each do |workout| %>
   <fieldset>
     <legend><%= workout_date(workout) %></legend>
-    <%= workout.description %><br>
+    "<%= workout.description %>"<br>
     <strong>Duration: </strong> 
     <%= workout.duration %><br>
     <%= link_to "View Details", workout %><br>
     
-    <h3>Exercises Performed: </h3>
+    <h3>Exercises Completed: </h3>
     <% workout.exercises.each do |exercise| %>
       <strong><%= link_to exercise.name, exercise_path(exercise) %></strong><br>
       <%= exercise.category %><br><br>
