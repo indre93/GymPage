@@ -2,16 +2,16 @@
 
 <div class="center">
   <h2><%= workout_date(@workout) %></h2>
-  <%= @workout.description %><br>
+  "<%= @workout.description %>"<br>
   <strong>Duration: </strong> 
   <%= @workout.duration %><br><br>
 </div>
 
 <div class="exercise-routine">
   <% @workout.routines.each do |routine| %>
-    <strong><%= link_to routine.exercise.name, exercise_path(routine.exercise_id) %></strong> -
+    <%= link_to routine.exercise.name, exercise_path(routine.exercise_id) %> -
     <%= routine.exercise.category %><br>
-    <%= routine.caption %>
+    "<%= routine.caption %>"
     <br><br>
   <% end %>
 </div>
