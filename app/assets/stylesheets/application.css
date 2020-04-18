@@ -14,48 +14,81 @@
  *= require_self
  */
 
-header, .nav_links {
-  display: center;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  padding: 0%;
-  margin: 30px auto;
-  max-width: auto;
+nav {
   text-align: center;
-  background: white;
-  box-shadow: 0 10px 10px rgb(0, 0, 0);
+  padding: 3%;
+  max-width: auto;
+  margin: 50px 0px 50px 0px;
+  background-image: url('dark-gray.jpg');
+  box-sizing: border-box;
+  box-shadow: 0px 30px 30px 30px rgb(0, 0, 0);
 }
 
-.nav_links li {
+nav li {
   list-style-type: none;
-  margin: 1px auto;
-  padding: 1%;
-  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  padding: 20px 20px 20px 20px;
+  display: inline-flex;
+}
+
+nav a {
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
+  width: 180px;
+  background-image: url('light-gray.jpg');
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: lucida;
+  text-transform: uppercase;
+  padding: 7px;
+}
+
+nav li a:hover {
+  background-image: url('dark-gray.jpg');
+  transition: all 0.3ms ease;
+  font-size: 120%;
+}
+
+nav li.active {
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 5px rgb(0, 0, 0);
+  width: 180px;
+  background-image: url('dark-gray.jpg');
+  color: rgba(255, 255, 255, 0.299);
+  text-transform: uppercase;
+  padding: 7px 0px 7px 20px;
+  display: inline-flex;
+  margin: 15px;
 }
 
 body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgba(61, 59, 59, 0.877);
-  color: rgb(0, 0, 0);
-  line-height: 20px;
-  margin: 3px auto;
+  color: black;
+  line-height: 25px;
+  margin: 0px auto;
+  font-family: lucida;
+  background-image: url('gray-brick.jpg');
 }
 
 .wrapper {
   box-sizing: border-box;
-  background: white;
-  box-shadow: 0px 5px 30px rgba(0,0,0);
+  -moz-box-align: center;
+  background-image: url('white-wood.png');
+  background-position: center;
+  box-shadow: 0px 50px 50px rgba(0,0,0);
   margin: 0px auto;
   max-width: 700px;
   padding: 2%; /* 18px / 800px */
   text-align: left;
+  font-weight: bolder;
 }
 
 h1 {
-  background-color: rgba(61, 59, 59, 0.932);
+  background-image: url('dark-gray.jpg');
   box-shadow: 0 5px 5px rgb(0, 0, 0);
   padding: 2%;
   margin: 25px auto;
@@ -80,7 +113,7 @@ h1 {
 }
 
 legend {
-  background: rgba(61, 59, 59, 0.932);
+  background-image: url('dark-gray.jpg');
   box-shadow: 0px 5px 5px rgba(0,0,0);
   color: white;
   margin: 10px auto;
