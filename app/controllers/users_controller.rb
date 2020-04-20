@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user
       session[:user_id] = @user.id
-      flash[:notice] = "Account was successfully created. Welcome to GymPage #{@user.first_name}!"
+      flash[:notice] = "Account was successfully created. Welcome to GymPage #{@user.username}!"
       redirect_to @user
     else
       render :new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
   def find_user
