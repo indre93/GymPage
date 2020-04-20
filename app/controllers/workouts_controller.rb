@@ -7,10 +7,10 @@ class WorkoutsController < ApplicationController
       routines.build_exercise
     end
   end
-
+ 
   def create
-    @workout = current_user.workouts.build(workout_params)
-    if @workout.save!
+    @workout = current_user.workouts.create(workout_params)
+    if @workout
       redirect_to workout_path(@workout)
     else
       render :new
@@ -25,7 +25,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:date, :duration, :description, exercise_ids: [], routines_attributes: [:caption, exercise_attributes: [:name, :category, :user_id]])
+    params.require(:workout).permit(:date, :duration, :description, routines_attributes: [:caption, :exercise_id, exercise_attributes: [:name, :category, :user_id]])
   end
 
   def find_workout
