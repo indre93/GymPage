@@ -2,7 +2,7 @@
 
 <%= form_for(@workout) do |f| %>
   <%= f.label :date %>
-  <%= f.date_field :date %><br><br>
+  <%= f.date_select :date, order: [:month, :day, :year], selected: Date.today %><br><br>
   <%= f.label :duration, "Duration (Please include hours and/or minutes)" %>
   <%= f.text_field :duration, size: "20" %><br><br>
   <%= f.label :description %><br>
@@ -27,7 +27,6 @@
     <% end %>
     
     <br>
-
     <%= routines_fields.label :caption, "Caption:" %><br>
     <%= routines_fields.text_area :caption, size: "50x1" %><br><br>
   <% end %>
