@@ -1,6 +1,6 @@
 # Users:
-katie = User.create!(first_name: "Katie", last_name: "Johnson", email: "katie@email.com", password: "password")
-john = User.create!(first_name: "John", last_name: "Smith", email: "john@email.com", password: "password")
+katie = User.create!(username: "Katiejohnson", email: "katie@email.com", password: "password")
+john = User.create!(username: "Johnny90", email: "john@email.com", password: "password")
 
 # Workouts:
 katies_workout = katie.workouts.create!(date: "10/04/2020", duration: "2 hours", description: "Today's workout consisted of a little bit of everything")

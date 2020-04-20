@@ -3,7 +3,7 @@ class CreateRoutines < ActiveRecord::Migration[6.0]
     create_table :routines do |t|
       t.references :workout, foreign_key: true
       t.references :exercise, foreign_key: true
-      t.text :caption
+      t.string :caption
 
       t.timestamps
     end

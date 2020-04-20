@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :exercises, through: :workouts
   has_many :routines, through: :workouts
 
-  validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
+  validates :username, :email, presence: true
+  validates :username, :email, uniqueness: true
   before_save { self.email = email.downcase }
-
+  
 end

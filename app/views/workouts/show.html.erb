@@ -1,4 +1,4 @@
-<h1><%= first_name(@workout.user) %>'s workout for</h1>
+<h1><%= username(@workout.user) %>'s workout for</h1>
 
 <div class="center">
   <h2><%= workout_date(@workout) %></h2>
@@ -7,7 +7,7 @@
   <%= @workout.duration %><br><br>
 </div>
 
-<div class="exercise-routine">
+<div class="exercise-routines">
   <% @workout.routines.each do |routine| %>
     <%= link_to routine.exercise.name, exercise_path(routine.exercise_id) %> -
     <%= routine.exercise.category %><br>
