@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :workouts
+  has_many :workouts, dependent: :destroy
   has_many :created_exercises, foreign_key: "user_id", class_name: "Exercise"
-  has_many :created_routines, foreign_key: "user_id", class_name: "Routine"
   has_many :exercises, through: :workouts
   has_many :routines, through: :workouts
 
