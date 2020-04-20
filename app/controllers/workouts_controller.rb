@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
 
   def new
     @workout = Workout.new
-    3.times do
+    5.times do
       routines = @workout.routines.build
       routines.build_exercise
     end
