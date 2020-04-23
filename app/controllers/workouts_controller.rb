@@ -9,11 +9,11 @@ class WorkoutsController < ApplicationController
   end
  
   def create
-    @workout = current_user.workouts.create(workout_params)
-    if @workout
+    @workout = current_user.workouts.build(workout_params)
+    if @workout.save
       redirect_to workout_path(@workout)
     else
-      render :new
+      redirect_to new_workout_path(@workout)
     end
   end
 

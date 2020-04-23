@@ -1,12 +1,12 @@
 <h1>All Exercises</h1>
 
-<div class="center">
+<div>
   <% @exercises.order(created_at: :desc).each do |exercise| %>
     <big><%= link_to exercise.name, exercise %><br></big>
     <%= exercise.category %><br>
     Added by <%= link_to username(exercise.user), user_path(exercise.user_id) %> - 
     <%= posted_at(exercise) %><br>
     <%= link_to "View routines completed", exercise_routines_path(exercise) %>
-    <br><br><br>
+    <br><br>
   <% end %>
 </div> 

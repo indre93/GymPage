@@ -1,14 +1,13 @@
-<h1>Log In!</h1>
+<h1>Log In</h1>
 
-<div class="center">
+<div class="login-form">
   <%= form_for(:user) do |f| %>
     <%= f.label :email %>
-    <%= f.email_field :email, required: true %>
+    <%= f.email_field :email, required: true %><br>
 
     <%= f.label :password %>
-    <%= f.password_field :password, required: true %>
+    <%= f.password_field :password, required: true %><br>
 
     <%= f.submit "Log In" %>
-
   <% end %>
 </div>

@@ -1,19 +1,22 @@
 <h1>Welcome to GymPage!</h1>
 
-<div class="center">
-  <% if !logged_in? %>
+
+<% if !logged_in? %>
+  <div class="new-user-links">
     <%= link_to "Log In", login_path, method: :get %>
     Or
     <%= link_to "Sign Up", new_user_path, method: :get %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
-<div>
-  <h2>Recent Workouts Posted: </h2>
+
+<fieldset>
+  <legend>Recent Workouts Posted: </legend>
   <% @workouts.order(created_at: :desc).each do |workout| %>
     <big><%= link_to username(workout.user), user_path(workout.user_id) %></big><br>
     <%= posted_at(workout) %><br>
     "<%= workout.description %>" -
-    <%= link_to "See more", workout_path(workout.id) %><br><br><br>
+    <%= link_to "See more", workout_path(workout.id) %><br>
+    <br>
   <% end %>
-</div>   
+</fieldset>   

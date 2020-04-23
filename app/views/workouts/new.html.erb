@@ -1,40 +1,44 @@
-<h1>Add a New Workout:</h1>
+<h1>Add a Workout:</h1>
 
-<div class="center">
+<div class="workout-form">
   <%= form_for(@workout) do |f| %>
+  <div class="select-date">
     <%= f.label :date %>
-    <%= f.date_select :date, order: [:month, :day, :year], selected: Date.today %><br><br>
+    <%= f.date_select :date, order: [:month, :day, :year], selected: Date.today %>
+  </div>
     <%= f.label :duration, "Duration (Please include hours and/or minutes)" %>
-    <%= f.text_field :duration, size: "20" %><br><br>
-    <%= f.label :description, "Description:" %><br>
-    <%= f.text_area :description, cols: "70", rows: "3" %><br>
+    <%= f.text_field :duration %>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+
+    <br><br>
   
-    <!-- DOUBLE NESTED FORM -->
+      <!-- DOUBLE NESTED FORM -->
 
-    <fieldset class="center">
-      <legend>Exercises</legend>
+      <fieldset>
+        <legend>Exercises</legend>
+        <%= f.fields_for :routines do |routine_field| %>
+          <div class="add-exercise"> 
 
-      <%= f.fields_for :routines do |routine_field| %>
-      <legend></legend>
-      <%= routine_field.label :exercise_id, "Select Existing Exercise:" %> 
-      <%= routine_field.collection_select(:exercise_id, Exercise.all.order(name: :asc), :id, :name, include_blank: true) %>
+            <%= routine_field.label :exercise_id, "Select Existing Exercise" %>
+            <%= routine_field.collection_select(:exercise_id, Exercise.all.order(name: :asc), :id, :name, include_blank: true) %>
+              
+              <%= routine_field.fields_for :exercise do |exercise_field| %>
+                <%= exercise_field.label :name, "Or Add New Exercise" %>
+                <%= exercise_field.text_field :name %>
 
-        <br>Or<br>
+                <%= routine_field.label :Category, "Category" %>
+                <%= exercise_field.select :category, options_for_select(category_options), include_blank: true %>
 
-        <%= routine_field.fields_for :exercise do |exercise_field| %>
-          <%= exercise_field.label :name, "Add New Exercise:" %>
-          <%= exercise_field.text_field :name, size: "30" %>
+                <%= routine_field.label :caption, "Exercise Rotine" %>
+                <%= routine_field.text_field :caption %>
 
-          <%= exercise_field.label :category, "Category:" %>
-          <%= exercise_field.select :category, options_for_select(category_options), include_blank: true %><br>
-          <br>
-          <%= routine_field.label :caption, "Exercise Rotine:" %><br>
-          <%= routine_field.text_field :caption, size: "45" %><br>
-          <%= exercise_field.hidden_field :user_id, value: current_user.id %>
-          <br>
-        <% end %>
-      <% end %>
-    </fieldset>
+                <%= exercise_field.hidden_field :user_id, value: current_user.id %>
+                <br><br>
+              <% end %>
+            <% end %>
+          </div>
+      </fieldset>
 
     <%= f.submit "Add Workout" %>
   <% end %>
