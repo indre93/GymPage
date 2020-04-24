@@ -8,8 +8,8 @@
 
   <% @routines.order(created_at: :desc).each do |routine| %>
     <h3><%= link_to routine_exercise(routine), exercise_path(routine.exercise) %></h3>
-    <big><%= link_to username(routine.workout.user), user_path(routine.workout.user) %></big> -
-    <%= link_to workout_date(routine.workout), workout_path(routine.workout) %><br>
+    <big><%= link_to user_username(routine), user_path(user_routine(routine)) %></big> -
+    <%= link_to workout_date(routine.workout), user_workout_path(user_routine(routine), routine.workout) %><br>
     "<%= routine.caption %>"
     <br><br>
   <% end %>
