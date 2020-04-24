@@ -40,7 +40,7 @@ nav ul {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-image: linear-gradient(360deg, #f1cb4d, #e22e0ee0);
+  background-image: linear-gradient(360deg, #f3c428, #e22e0ee0);
   box-shadow: 0px 7px 7px 0px black;
   justify-self: center;
 }
@@ -62,7 +62,7 @@ nav li a {
 
 nav li a:hover {
   transition: all 10ms ease;
-  background-image: linear-gradient(180deg, #f1cb4d, #e22e0ee0);
+  background-image: linear-gradient(180deg, #f3c428, #e22e0ee0);
   box-shadow: 0px 7px 7px 0px black;
 }
 
@@ -79,6 +79,28 @@ nav li.active {
   border-radius: 30px;
 }
 
+.flash-message {
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
+  color: rgb(15, 103, 15);
+  font-weight: bold;
+  margin-bottom: 35px;
+  background-color: rgb(131, 231, 131);
+  border-radius: 5px;
+}
+
+.flash-error {
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
+  color: rgb(181, 16, 16);
+  font-weight: bold;
+  margin-bottom: 35px;
+  background-color: lightpink;
+  border-radius: 5px;
+}
+
 body {
   background-image: url('gray-brick.jpg');
   font-size: 17px;
@@ -86,7 +108,7 @@ body {
 
 .wrapper {
   box-sizing: border-box;
-  background-image: linear-gradient(90deg, #e22e0ee0, #f1cb4d);
+  background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
   box-shadow: 0px 50px 50px 0px rgba(0,0,0);
   margin: 200px auto;
   max-width: 900px;
@@ -102,13 +124,14 @@ h1, h2, .center {
 }
 
 h1 {
+  display: inline-block;
+  padding: 20px;
+  width: 80%;
+  color: white;
   background-image: url('dark-gray.jpg');
   box-shadow: 0 5px 5px rgb(0, 0, 0);
-  padding: 1%;
-  margin-bottom: 50px;
-  max-width: 20px auto;
-  color: white;
   border-radius: 30px;
+  margin-bottom: 50px;
 }
 
 h2 {
@@ -236,6 +259,6 @@ input[type=submit], .new-user-links a {
 }
 
 input[type=submit]:hover, .new-user-links a:hover {
-  background-image: linear-gradient(360deg, #e22e0ee0, #f1cb4d);
+  background-image: linear-gradient(360deg, #e22e0ee0, #f3c428);
   transition: all 0.4s ease;
 }

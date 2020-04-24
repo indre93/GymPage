@@ -1,5 +1,9 @@
 <h1>Exercise Details</h1>
 
+<% if flash[:message] %>
+  <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
+<% end %>
+
 <fieldset>
   <legend><%= @exercise.name %></legend>
     <%= @exercise.category %><br>

@@ -2,10 +2,10 @@ class RoutinesController < ApplicationController
 
   def index
     exercise = Exercise.find_by(id: params[:exercise_id])
-    if exercise
+    if params[:exercise_id] && exercise
       @routines = exercise.routines
-    else
-      @routines = Routine.all.includes(:workout, :exercise)
+    else 
+      @routines = Routine.all
     end
   end
 

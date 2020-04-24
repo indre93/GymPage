@@ -1,5 +1,9 @@
 <h1><%= @user.username %>'s GymPage</h1>
 
+<% if flash[:message] %>
+  <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
+<% end %>
+
 <div>
   <% @user.workouts.order(date: :desc).each do |workout| %>
     <fieldset>

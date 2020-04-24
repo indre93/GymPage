@@ -8,9 +8,10 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user
       session[:user_id] = @user.id
-      flash[:notice] = "Account was successfully created. Welcome to GymPage #{@user.username}!"
+      flash[:message] = "Account was successfully created. Welcome to GymPage #{@user.username}!"
       redirect_to @user
     else
+      flash[:error] = "Sorry! The information you have entered is invalid. Please try again."
       render :new
     end
   end

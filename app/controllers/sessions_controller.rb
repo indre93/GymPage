@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     # If @user true authenticate password
     if @user.try(:authenticate, params[:user][:password])
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome back #{@user.username}!"
+      flash[:message] = "Welcome back #{@user.username}!"
       redirect_to @user
     else
       flash[:error] = "Sorry! The information you have entered in invalid. Please try again."
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    flash[:notice] = "See ya next time!"
+    flash[:message] = "See ya next time!"
     redirect_to login_path
   end
 

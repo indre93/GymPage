@@ -1,5 +1,8 @@
 <h1>Welcome to GymPage!</h1>
 
+<% if flash[:error] %>
+  <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
+<% end %>
 
 <% if !logged_in? %>
   <div class="new-user-links">
@@ -8,7 +11,6 @@
     <%= link_to "Sign Up", new_user_path, method: :get %>
   </div>
 <% end %>
-
 
 <fieldset>
   <legend>Recent Workouts Posted: </legend>

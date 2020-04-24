@@ -12,8 +12,10 @@ class ExercisesController < ApplicationController
   def create
     @exercise = current_user.created_exercises.build(exercise_params)
     if @exercise.save
+      flash[:message] = "Exercise has been successfully added!"
       redirect_to exercise_path(@exercise)
     else
+      flash[:error] = "Unable to add exercise: #{@exercise.errors.full_messages.to_sentence}"
       render :new
     end
   end

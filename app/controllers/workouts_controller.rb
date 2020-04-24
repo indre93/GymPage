@@ -10,10 +10,13 @@ class WorkoutsController < ApplicationController
  
   def create
     @workout = current_user.workouts.build(workout_params)
-    if @workout.save
+    if @workout.save && !@workout.exercises.empty?
+      flash[:message] = "Workout has been successfully added!"
       redirect_to workout_path(@workout)
     else
-      redirect_to new_workout_path(@workout)
+      flash[:error] = "Unable to add workout. #{@workout.errors.full_messages.to_sentence}"
+      #  browser will make a fresh request for the new page, and the code in the new method will run
+      redirect_to action: :new
     end
   end
 
