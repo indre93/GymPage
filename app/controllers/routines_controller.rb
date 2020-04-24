@@ -7,6 +7,7 @@ class RoutinesController < ApplicationController
     else 
       @routines = Routine.all.includes(:workout, :exercise)
     end
+    redirect_if_not_a_user
   end
 
 end
