@@ -9,15 +9,20 @@
     <fieldset>
       <legend><%= workout_date(workout) %></legend>
       "<%= workout.description %>"<br>
-      Duration: <%= workout.duration %><br>
+      <%= workout.duration %><br>
       <%= link_to "See More Details", workout %><br>
 
       <h2>Exercises Completed: </h2>
 
       <% workout.exercises.each do |exercise| %>
-        <strong><%= link_to exercise.name, exercise_path(exercise) %></strong><br>
-        <%= exercise.category %><br>
+        <h3><%= link_to exercise.name, exercise_path(exercise) %>
+        <h5><%= exercise.category %></h5>
       <% end %>
+
+      <% if current_user.id == workout.user_id %>
+        <br><%= link_to "Add another routine", new_workout_routine_path(workout) %>
+      <% end %>
+
     </fieldset>
   <% end %>
 </div>    

@@ -7,15 +7,18 @@
 <div>
   <h2><%= workout_date(@workout) %></h2>
   "<%= @workout.description %>"<br>
-  <strong>Duration: </strong> 
   <%= @workout.duration %><br><br>
 </div>
 
 <div class="exercise-routines">
   <% @workout.routines.each do |routine| %>
-    <%= link_to routine.exercise.name, exercise_path(routine.exercise_id) %> -
-    <%= routine.exercise.category %><br>
+    <h3><%= link_to routine_exercise(routine), exercise_path(routine.exercise_id) %></h3>
+    <h5><%= exercise_category(routine) %></h5>
     "<%= routine.caption %>"
     <br><br>
   <% end %>
 </div>
+
+<% if current_user.id == @workout.user_id %>
+  <br><%= link_to "Add another routine", new_workout_routine_path(@workout) %>
+<% end %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   resources :workouts, only: [:new, :create, :show] do
-    resources :exercises, only: [:new, :create]
+    resources :routines, only: [:new, :create]
   end
 
   resources :exercises, only: [:index, :new, :create, :show] do
