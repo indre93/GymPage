@@ -10,12 +10,4 @@ class Workout < ApplicationRecord
     routine_params.values.any?(&:empty?) && (routine_params["exercise_attributes"].values.any?(&:empty?) || !routine_params["exercise_id"])
   end	 
 
-#  def routines_attributes=(attributes)
-#    attributes.values.each do |routine_params|  
-#      if !routine_params.values.any?(&:empty?)
-#        self.routines << Routine.create(routine_params)    
-#      end
-#    end 
-#  end
-  
 end
