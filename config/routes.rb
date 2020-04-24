@@ -4,15 +4,17 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :workouts, only: [:show]
+  end
   
   resources :workouts, only: [:new, :create, :show] do
-    resources :routines, only: [:new, :create]
+    resources :exercises, only: [:new, :create]
   end
 
   resources :exercises, only: [:index, :new, :create, :show] do
     resources :routines, only: [:index]
   end
   
-  resources :routines
+  resources :routines, only: [:index]
 end
