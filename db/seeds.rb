@@ -62,6 +62,6 @@ Routine.create!(
     {caption: "Spent at least 5 minutes doing this, or at least tried to!", workout_id: 1, exercise_id: 17},
     {caption: "Tried this new movement!", workout_id: 2, exercise_id: 18},
     {caption: "First time trying this and loved it!", workout_id: 2, exercise_id: 19},
-    {caption: "Definetely felt yesterdays workout while doing this", workout_id: 2, exercise_id: 20},
+    {caption: "Definitely felt yesterdays workout while doing this", workout_id: 2, exercise_id: 20},
   ]
 )
