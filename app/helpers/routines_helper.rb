@@ -1,18 +1,18 @@
 module RoutinesHelper
 
-  def routine_exercise(routine)
+  def routine_exercise_name(routine)
     routine.exercise.name
   end
 
-  def exercise_category(routine)
+  def routine_exercise_category(routine)
     routine.exercise.category
   end
-
-  def user_username(routine)
+ 
+  def routine_username(routine)
     routine.workout.user.username
   end
 
-  def user_routine(routine)
+  def routine_user(routine)
     routine.workout.user
   end
 

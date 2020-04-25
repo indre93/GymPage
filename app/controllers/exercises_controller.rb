@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   before_action :require_login
 
   def index
-    @exercises = Exercise.all.includes(:user)
+    @exercises = Exercise.all
   end
 
   def new 
@@ -10,7 +10,7 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    @exercise = current_user.created_exercises.build(exercise_params)
+    @exercise = Exercise.new(exercise_params)
     if @exercise.save
       flash[:message] = "Exercise has been successfully added!"
       redirect_to exercise_path(@exercise)

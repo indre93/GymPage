@@ -15,8 +15,8 @@
 <fieldset>
   <legend>Recent Workouts Posted: </legend>
   <% @workouts.order(created_at: :desc).each do |workout| %>
-    <big><%= link_to username(workout.user), user_path(workout.user_id) %></big><br>
-    <%= posted_at(workout) %><br>
+    <big><%= link_to workout_username(workout), user_path(workout.user) %></big><br>
+    <%= workout_posted_at(workout) %><br>
     "<%= workout.description %>" -
     <%= link_to "See more", user_workout_path(workout.user, workout) %><br>
     <br>

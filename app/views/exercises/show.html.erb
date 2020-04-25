@@ -6,13 +6,12 @@
 
 <fieldset>
   <legend><%= @exercise.name %></legend>
-    <%= @exercise.category %><br>
-    Added by <%= link_to username(@exercise.user), user_path(@exercise.user_id) %> - 
-    <%= posted_at(@exercise) %>
-  
-    <br><br>
-
-    <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend><br>
+    <strong><%= @exercise.category %></strong><br>
+    <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend>
     <%= link_to "View routines completed", exercise_routines_path(@exercise) %>
     <br>
 </fieldset>
+
+<br>
+
+<%= link_to 'Back', :back %>
