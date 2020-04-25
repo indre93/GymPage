@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
   
   def new
     @user = User.new
@@ -18,7 +19,6 @@ class UsersController < ApplicationController
 
   def show
     find_user
-    redirect_if_not_a_user
   end
 
   private

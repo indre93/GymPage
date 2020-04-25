@@ -1,4 +1,5 @@
 class WorkoutsController < ApplicationController
+  before_action :require_login
 
   def new
     @workout = Workout.new
@@ -22,7 +23,6 @@ class WorkoutsController < ApplicationController
 
   def show
     find_workout
-    redirect_if_not_a_user
   end
 
   private

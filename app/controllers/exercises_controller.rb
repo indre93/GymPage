@@ -1,8 +1,8 @@
 class ExercisesController < ApplicationController
+  before_action :require_login
 
   def index
     @exercises = Exercise.all.includes(:user)
-    redirect_if_not_a_user
   end
 
   def new 
@@ -22,7 +22,6 @@ class ExercisesController < ApplicationController
 
   def show
     find_exercise
-    redirect_if_not_a_user
   end
 
   private
