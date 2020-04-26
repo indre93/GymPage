@@ -1,31 +1,27 @@
 <h1><%= @user.username %>'s GymPage</h1>
 
 <% if flash[:message] %>
-  <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
+   <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
 <% end %>
 
-<div>
-  <% @user.workouts.order(date: :desc).each do |workout| %>
-    <fieldset>
-      <legend><%= workout_date(workout) %></legend>
+<% @user.workouts.order(date: :desc).each do |workout| %>
+   <fieldset>
+   <legend><%= workout_date(workout) %></legend>
       "<%= workout.description %>"<br>
       <%= workout.duration %><br>
       <%= link_to "See More Details", workout %><br>
 
       <h2>Exercises Completed: </h2>
-
       <% workout.exercises.each do |exercise| %>
-        <h3><%= link_to exercise.name, exercise_path(exercise) %>
-        <h5><%= exercise.category %></h5>
+         <h3><%= link_to exercise.name, exercise_path(exercise) %>
+         <h5><%= exercise.category %></h5>
       <% end %>
 
       <% if current_user.id == workout.user_id %>
-        <br><%= link_to "Add another routine", new_workout_routine_path(workout) %>
+         <br><%= link_to "Add Another Routine", new_workout_routine_path(workout) %>
       <% end %>
-
-    </fieldset>
-  <% end %>
-</div>    
+   </fieldset>
+<% end %>
 
 <br>
 

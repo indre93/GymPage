@@ -1,26 +1,27 @@
 <h1><%= workout_username(@workout) %>'s workout for</h1>
 
 <% if flash[:message] %>
-  <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
+   <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
 <% end %>
 
 <div>
-  <h2><%= workout_date(@workout) %></h2>
-  "<%= @workout.description %>"<br>
-  <%= @workout.duration %><br><br>
+   <h2><%= workout_date(@workout) %></h2>
+   "<%= @workout.description %>"<br>
+   <%= @workout.duration %>
+   <br><br>
 </div>
 
 <div class="exercise-routines">
-  <% @workout.routines.each do |routine| %>
-    <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h3>
-    <h5><%= routine_exercise_category(routine) %></h5>
-    "<%= routine.caption %>"
-    <br><br>
-  <% end %>
+   <% @workout.routines.each do |routine| %>
+      <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h3>
+      <h5><%= routine_exercise_category(routine) %></h5>
+      "<%= routine.caption %>"
+      <br><br>
+   <% end %>
 </div>
 
 <% if current_user.id == @workout.user_id %>
-  <br><%= link_to "Add another routine", new_workout_routine_path(@workout) %>
+   <br><%= link_to "Add Another Routine", new_workout_routine_path(@workout) %>
 <% end %>
 
 <br>

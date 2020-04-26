@@ -1,15 +1,15 @@
 <h1>Exercise Details</h1>
 
 <% if flash[:message] %>
-  <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
+   <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
 <% end %>
 
 <fieldset>
-  <legend><%= @exercise.name %></legend>
-    <strong><%= @exercise.category %></strong><br>
-    <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend>
-    <%= link_to "View routines completed", exercise_routines_path(@exercise) %>
-    <br>
+<legend><%= @exercise.name %></legend>
+   <strong><%= @exercise.category %></strong><br>
+   <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend><br>
+   <%= link_to "View routines completed", exercise_routines_path(@exercise) %>
+   <br><br>
 </fieldset>
 
 <br>

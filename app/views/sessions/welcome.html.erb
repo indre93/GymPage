@@ -1,24 +1,24 @@
 <h1>Welcome to GymPage!</h1>
 
 <% if flash[:error] %>
-  <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
+   <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
 <% end %>
 
 <% if !logged_in? %>
-  <div class="new-user-links">
-    <%= link_to "Log In", login_path, method: :get %>
-    Or
-    <%= link_to "Sign Up", new_user_path, method: :get %>
-  </div>
+   <div class="new-user-links">
+      <%= link_to "Log In", login_path, method: :get %>
+      Or
+      <%= link_to "Sign Up", new_user_path, method: :get %>
+   </div>
 <% end %>
 
 <fieldset>
-  <legend>Recent Workouts Posted: </legend>
-  <% @workouts.order(created_at: :desc).each do |workout| %>
-    <big><%= link_to workout_username(workout), user_path(workout.user) %></big><br>
-    <%= workout_posted_at(workout) %><br>
-    "<%= workout.description %>" -
-    <%= link_to "See more", user_workout_path(workout.user, workout) %><br>
-    <br>
-  <% end %>
+<legend>Recent Workouts Posted: </legend>
+   <% @workouts.order(created_at: :desc).each do |workout| %>
+      <big><%= link_to workout_username(workout), user_path(workout.user) %></big><br>
+      <%= workout_posted_at(workout) %><br>
+      "<%= workout.description %>" -
+      <%= link_to "See more", user_workout_path(workout.user, workout) %><br>
+      <br>
+   <% end %>
 </fieldset>   

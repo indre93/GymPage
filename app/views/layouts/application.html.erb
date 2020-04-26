@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>GymPage</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+   <head>
+      <title>GymPage</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
 
-  <header>
-    <nav>
-      <ul>
-        <% if logged_in? %>
-          <li class="<%= active_page?(root_path) %>"><%= link_to_unless_current("GymPage", root_path) %></li>
-          <li class="<%= active_page?(current_user) %>"><%= link_to_unless_current("#{current_user.username}'s Workouts", current_user) %></li>
-          <li class="<%= active_page?(new_workout_path) %>"><%= link_to_unless_current("Add New Workout", new_workout_path) %></li>
-          <li class="<%= active_page?(exercises_path) %>"><%= link_to_unless_current("All Exercises", exercises_path) %></li>
-          <li class="<%= active_page?(routines_path) %>"><%= link_to_unless_current("All Routines", routines_path) %></li>
-          <li><%= link_to_unless_current("Log Out", logout_path, method: :delete) %></li>
-        <% else %>
-          <li class="<%= active_page?(root_path) %>"><%= link_to_unless_current("GymPage", root_path) %></li>
-          <li class="<%= active_page?(login_path) %>"><%= link_to_unless_current("Log In", login_path) %></li>
-          <li class="<%= active_page?(new_user_path) %>"><%= link_to_unless_current("Sign Up", new_user_path) %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
-  
-  <body>
-    <div class="wrapper">
-      <%= yield %>
-    </div>  
-  </body>
-  
+   <header>
+      <nav>
+         <ul>
+         <% if logged_in? %>
+            <li class="<%= active_page?(root_path) %>"><%= link_to_unless_current("GymPage", root_path) %></li>
+            <li class="<%= active_page?(current_user) %>"><%= link_to_unless_current("#{current_user.username}'s Workouts", current_user) %></li>
+            <li class="<%= active_page?(new_workout_path) %>"><%= link_to_unless_current("Add New Workout", new_workout_path) %></li>
+            <li class="<%= active_page?(exercises_path) %>"><%= link_to_unless_current("All Exercises", exercises_path) %></li>
+            <li class="<%= active_page?(routines_path) %>"><%= link_to_unless_current("All Routines", routines_path) %></li>
+            <li><%= link_to_unless_current("Log Out", logout_path, method: :delete) %></li>
+         <% else %>
+            <li class="<%= active_page?(root_path) %>"><%= link_to_unless_current("GymPage", root_path) %></li>
+            <li class="<%= active_page?(login_path) %>"><%= link_to_unless_current("Log In", login_path) %></li>
+            <li class="<%= active_page?(new_user_path) %>"><%= link_to_unless_current("Sign Up", new_user_path) %></li>
+         <% end %>
+         </ul>
+      </nav>
+   </header>
+   
+   <body>
+      <div class="wrapper">
+         <%= yield %>
+      </div>  
+   </body>
+   
 
 </html>

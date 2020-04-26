@@ -15,250 +15,261 @@
  */
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: 'lato';
-  text-align: center;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: 'lato';
+   text-align: center;
+   box-sizing: border-box;
 }
 
 nav {
-  box-sizing: border-box;
-  background-image: url('dark-gray.jpg');
-  box-shadow: 0px 0px 15px 15px rgb(0, 0, 0);
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  padding: 8px 0px;
-  position: fixed;
-  font-size: 18px; 
-  text-align: center;
+   box-sizing: border-box;
+   background-image: url('dark-gray.jpg');
+   box-shadow: 0px 0px 15px 15px rgb(0, 0, 0);
+   overflow: hidden;
+   top: 0;
+   width: 100%;
+   padding: 8px 0px;
+   position: fixed;
+   font-size: 18px;
+   text-align: center;
 }
 
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-image: linear-gradient(360deg, #f3c428, #e22e0ee0);
-  box-shadow: 0px 7px 7px 0px black;
-  justify-self: center;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   background-image: linear-gradient(360deg, #f3c428, #e22e0ee0);
+   box-shadow: 0px 7px 7px 0px black;
+   justify-self: center;
 }
 
 nav li {
-  margin: 10px;
-  display: inline-flex;
-  justify-self: center;
+   margin: 10px;
+   display: inline-flex;
+   justify-self: center;
 }
 
 nav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border-radius: 30px;
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   border-radius: 30px;
 }
 
 nav li a:hover {
-  transition: all 10ms ease;
-  background-image: linear-gradient(180deg, #f3c428, #e22e0ee0);
-  box-shadow: 0px 7px 7px 0px black;
+   transition: all 10ms ease;
+   background-image: linear-gradient(180deg, #f3c428, #e22e0ee0);
+   box-shadow: 0px 7px 7px 0px black;
 }
 
 nav li a:active {
-  font-size: 90%;
+   font-size: 90%;
 }
 
 nav li.active {
-  background-image: url('dark-gray.jpg');
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border-radius: 30px;
+   background-image: url('dark-gray.jpg');
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   border-radius: 30px;
 }
 
 .flash-message {
-  display: inline-block;
-  width: auto;
-  padding: 10px 20px;
-  color: rgb(15, 103, 15);
-  font-weight: bold;
-  margin-bottom: 35px;
-  background-color: rgb(131, 231, 131);
-  border-radius: 5px;
+   display: inline-block;
+   width: auto;
+   padding: 10px 20px;
+   color: rgb(15, 103, 15);
+   font-weight: bold;
+   margin-bottom: 35px;
+   background-color: rgb(131, 231, 131);
+   border-radius: 5px;
 }
 
 .flash-error {
-  display: inline-block;
-  width: auto;
-  padding: 10px 20px;
-  color: rgb(181, 16, 16);
-  font-weight: bold;
-  margin-bottom: 35px;
-  background-color: lightpink;
-  border-radius: 5px;
+   display: inline-block;
+   width: auto;
+   padding: 10px 20px;
+   color: rgb(181, 16, 16);
+   font-weight: bold;
+   margin-bottom: 35px;
+   background-color: lightpink;
+   border-radius: 5px;
 }
 
 body {
-  background-image: url('gray-brick.jpg');
-  font-size: 17px;
+   background-image: url('gray-brick.jpg');
+   font-size: 17px;
 }
 
 .wrapper {
-  box-sizing: border-box;
-  background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
-  box-shadow: 0px 50px 50px 0px rgba(0,0,0);
-  margin: 200px auto;
-  max-width: 900px;
-  min-height: 500px;
-  padding: 50px 50px 50px 50px;
-  line-height: 30px;
-  color: white;
-  border-radius: 30px;
+   box-sizing: border-box;
+   background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
+   box-shadow: 0px 50px 50px 0px rgba(0, 0, 0);
+   margin: 200px auto;
+   max-width: 900px;
+   min-height: 500px;
+   padding: 50px 50px 50px 50px;
+   line-height: 30px;
+   color: white;
+   border-radius: 30px;
 }
 
-h1, h2, .center {
-  text-align: center;
+h1,
+h2,
+.center {
+   text-align: center;
 }
 
 h1 {
-  display: inline-block;
-  padding: 20px;
-  width: 80%;
-  color: white;
-  background-image: url('dark-gray.jpg');
-  box-shadow: 0 5px 5px rgb(0, 0, 0);
-  border-radius: 30px;
-  margin-bottom: 50px;
+   display: inline-block;
+   padding: 20px;
+   width: 80%;
+   color: white;
+   background-image: url('dark-gray.jpg');
+   box-shadow: 0 5px 5px rgb(0, 0, 0);
+   border-radius: 30px;
+   margin-bottom: 50px;
 }
 
 h2 {
-  margin-bottom: 25px;
-  margin-top: 25px;
+   margin-bottom: 25px;
+   margin-top: 25px;
 }
 
 .wrapper a {
-  color: black;
-  padding: 10px;
+   color: black;
+   padding: 10px;
 }
 
 .wrapper a:hover {
-  color: white;
+   color: white;
 }
 
 .left {
-  text-align: left;
+   text-align: left;
 }
 
 fieldset {
-  margin-bottom: 20px;
-  padding: 0px 0px 20px 0px;
-  border-radius: 10px;
-  border-color: rgb(90, 89, 89);
+   margin-bottom: 20px;
+   padding: 0px 0px 20px 0px;
+   border-radius: 10px;
+   border-color: rgb(90, 89, 89);
 }
 
 legend {
-  background-image: url('dark-gray.jpg');
-  box-shadow: 0px 5px 5px rgba(0,0,0);
-  color: white;
-  border-radius: 10px;
-  margin: 10px 10px;
-  padding: 1px 20px;
-  font-size: 22px;
+   background-image: url('dark-gray.jpg');
+   box-shadow: 0px 5px 5px rgba(0, 0, 0);
+   color: white;
+   border-radius: 10px;
+   margin: 10px 10px;
+   padding: 1px 20px;
+   font-size: 22px;
 }
 
 .add-exercise {
-  color: white;
-  font-size: 22px;
-  margin: 20px 20px;
-  text-align: center;
+   color: white;
+   font-size: 22px;
+   margin: 20px 20px;
+   text-align: center;
 }
 
 /* Login and SignUp Forms */
-.signup-form label, .login-form label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 17px;
+.signup-form label,
+.login-form label {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 17px;
 }
 
-.signup-form input, .login-form input {
-  box-sizing: border-box;
-  padding: 10px 10px 10px 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  width: 50%;
-  border-radius: 5px;
-  display: inline-block;
-  background: white;
-  font-size: 17px;
+.signup-form input,
+.login-form input {
+   box-sizing: border-box;
+   padding: 10px 10px 10px 10px;
+   margin: 5px;
+   border: 1px solid #ccc;
+   width: 50%;
+   border-radius: 5px;
+   display: inline-block;
+   background: white;
+   font-size: 17px;
 }
 
 /* New Workout and Exercise Forms */
-.workout-form label, .exercise-form label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 17px;
+.workout-form label,
+.exercise-form label {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 17px;
 }
 
-input, textarea, select {
-  box-sizing: border-box;
-  padding: 5px 5px 5px 5px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  width: 40%;
-  border-radius: 5px;
-  display: inline-block;
-  background: white;
-  font-size: 17px;
+input,
+textarea,
+select {
+   box-sizing: border-box;
+   padding: 5px 5px 5px 5px;
+   margin: 5px;
+   border: 1px solid #ccc;
+   width: 40%;
+   border-radius: 5px;
+   display: inline-block;
+   background: white;
+   font-size: 17px;
 }
 
 select {
-  cursor: pointer;
+   cursor: pointer;
 }
 
 .select-date select {
-  width: auto;
+   width: auto;
 }
 
 textarea {
-  width: 75%;
-  resize: none;
-  overflow: auto;
+   width: 75%;
+   resize: none;
+   overflow: auto;
 }
 
-input:focus, textarea:focus, select:focus {
-  background-color: moccasin;
+input:focus,
+textarea:focus,
+select:focus {
+   background-color: moccasin;
 }
 
-input[type=submit], .new-user-links a {
-  width: 20%;
-  background: #e22e0ee0;
-  color: white;
-  padding: 10px;
-  margin-top: 50px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
+input[type=submit],
+.new-user-links a {
+   width: 20%;
+   background: #e22e0ee0;
+   color: white;
+   padding: 10px;
+   margin-top: 50px;
+   border-radius: 30px;
+   border: none;
+   cursor: pointer;
 }
 
 .new-user-links a {
-  margin: 15px;
-  padding: 10px 50px;
-  text-decoration: none;
-  text-shadow: none; 
-  text-transform: uppercase;
+   margin: 15px;
+   padding: 10px 50px;
+   text-decoration: none;
+   text-shadow: none;
+   text-transform: uppercase;
 }
 
 .new-user-links {
-  padding-top: 20px;
-  padding-bottom: 60px;
+   padding-top: 20px;
+   padding-bottom: 60px;
 }
 
-input[type=submit]:hover, .new-user-links a:hover {
-  background-image: linear-gradient(360deg, #e22e0ee0, #f3c428);
-  transition: all 0.4s ease;
+input[type=submit]:hover,
+.new-user-links a:hover {
+   background-image: linear-gradient(360deg, #e22e0ee0, #f3c428);
+   transition: all 0.4s ease;
 }
