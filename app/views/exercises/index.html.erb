@@ -4,7 +4,9 @@
    <% @exercises.order(created_at: :desc).each do |exercise| %>
       <h3><%= link_to exercise.name, exercise %></h3>
       <h5><%= exercise.category %><h5>
-      <%= link_to "View routines completed", exercise_routines_path(exercise) %>
+      <%= link_to "View routines", exercise_routines_path(exercise) %>
+
       <br><br>
+
    <% end %>
 </div> 

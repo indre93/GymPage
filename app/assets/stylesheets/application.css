@@ -23,16 +23,15 @@
 }
 
 nav {
+   top: 0rem;
+   width: 100%;
+   padding: 10px 0px;
    box-sizing: border-box;
    background-image: url('dark-gray.jpg');
    box-shadow: 0px 0px 15px 15px rgb(0, 0, 0);
    overflow: hidden;
-   top: 0;
-   width: 100%;
-   padding: 8px 0px;
    position: fixed;
-   font-size: 18px;
-   text-align: center;
+   font-size: 17px;
 }
 
 nav ul {
@@ -42,22 +41,24 @@ nav ul {
    width: 100%;
    background-image: linear-gradient(360deg, #f3c428, #e22e0ee0);
    box-shadow: 0px 7px 7px 0px black;
-   justify-self: center;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
 }
 
 nav li {
    margin: 10px;
-   display: inline-flex;
-   justify-self: center;
 }
 
 nav li a {
+   text-decoration: none;
    display: block;
    color: white;
    text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
+   padding: 1rem 0.5rem;
    border-radius: 30px;
+   display: flex;
+   align-items: flex-start;
 }
 
 nav li a:hover {
@@ -74,7 +75,7 @@ nav li.active {
    background-image: url('dark-gray.jpg');
    color: white;
    text-align: center;
-   padding: 14px 16px;
+   padding: 1rem 0.95rem;
    text-decoration: none;
    border-radius: 30px;
 }
@@ -104,6 +105,7 @@ nav li.active {
 body {
    background-image: url('gray-brick.jpg');
    font-size: 17px;
+
 }
 
 .wrapper {
@@ -111,12 +113,12 @@ body {
    background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
    box-shadow: 0px 50px 50px 0px rgba(0, 0, 0);
    margin: 200px auto;
-   max-width: 900px;
-   min-height: 500px;
+   max-width: 1000px;
+   min-height: 400px;
    padding: 50px 50px 50px 50px;
-   line-height: 30px;
+   line-height: 25px;
    color: white;
-   border-radius: 30px;
+   border-radius: 10px;
 }
 
 h1,
@@ -156,7 +158,7 @@ h2 {
 
 fieldset {
    margin-bottom: 20px;
-   padding: 0px 0px 20px 0px;
+   padding: 20px 20px 20px 0px;
    border-radius: 10px;
    border-color: rgb(90, 89, 89);
 }
@@ -167,15 +169,8 @@ legend {
    color: white;
    border-radius: 10px;
    margin: 10px 10px;
-   padding: 1px 20px;
+   padding: 5px 20px;
    font-size: 22px;
-}
-
-.add-exercise {
-   color: white;
-   font-size: 22px;
-   margin: 20px 20px;
-   text-align: center;
 }
 
 /* Login and SignUp Forms */
@@ -196,17 +191,25 @@ legend {
    width: 50%;
    border-radius: 5px;
    display: inline-block;
-   background: white;
    font-size: 17px;
 }
 
-/* New Workout and Exercise Forms */
-.workout-form label,
-.exercise-form label {
+/* New Workout - first section */
+.workout-form label {
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 17px;
+}
+
+.select-date label {
+   display: inline;
+}
+
+/* New Workout - second section */
+.add-routine-exercise label {
+   display: flex;
+   margin-top: 5px;
+   margin-bottom: 5px;
 }
 
 input,
@@ -219,7 +222,6 @@ select {
    width: 40%;
    border-radius: 5px;
    display: inline-block;
-   background: white;
    font-size: 17px;
 }
 
@@ -249,7 +251,7 @@ input[type=submit],
    background: #e22e0ee0;
    color: white;
    padding: 10px;
-   margin-top: 50px;
+   margin-top: 40px;
    border-radius: 30px;
    border: none;
    cursor: pointer;
