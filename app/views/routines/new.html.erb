@@ -1,0 +1,34 @@
+<h1>Adding Routine For</h1>
+
+<% if flash[:error] %>
+   <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
+<% end %>
+
+<div class="routine-form">
+   <%= form_for([@workout, @routine]) do |f| %>
+
+      <h3><%= workout_date(@workout) %>'s Workout</h3>
+         
+      <br><br>
+
+      <fieldset>
+      <legend><%= f.label :exercise_id, "Select Existing Exercise" %></legend>
+      <%= f.collection_select :exercise_id, Exercise.all, :id, :name, include_blank: true %>
+      
+      <br><br>
+
+      <%= f.fields_for :exercise do |exercise_field| %>
+         <h3><%= exercise_field.label :name, "Or Add New Exercise" %></h3>
+         <%= exercise_field.text_field :name %><br>
+         <%= exercise_field.select :category, options_for_select(category_options), prompt: "Select a Category" %>
+      <% end %>
+
+      <br><br>
+
+      <legend><%= f.label :caption, "Exercise Rotine" %></legend><br>
+      <%= f.text_field :caption, required: true %><br>
+
+      <%= f.submit "Add Routine" %>
+      </fieldset>
+   <% end %>
+</div>

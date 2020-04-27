@@ -4,6 +4,10 @@
    <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
 <% end %>
 
+<% if flash[:error] %>
+   <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
+<% end %>
+
 <% @user.workouts.order(date: :desc).each do |workout| %>
    <fieldset>
    <legend><%= workout_date(workout) %></legend>
