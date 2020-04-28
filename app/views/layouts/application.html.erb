@@ -13,7 +13,7 @@
       <nav>
          <ul>
          <% if logged_in? %>
-            <li class="<%= active_page?(root_path) %>"><%= link_to_unless_current("GymPage", root_path) %></li>
+            <li class="<%= active_page?(workouts_path) %>"><%= link_to_unless_current("GymPage", workouts_path) %></li>
             <li class="<%= active_page?(current_user) %>"><%= link_to_unless_current("#{current_user.username}'s Workouts", current_user) %></li>
             <li class="<%= active_page?(new_workout_path) %>"><%= link_to_unless_current("Add New Workout", new_workout_path) %></li>
             <li class="<%= active_page?(exercises_path) %>"><%= link_to_unless_current("All Exercises", exercises_path) %></li>

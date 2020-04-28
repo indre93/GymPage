@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
+   before_action :redirect_if_current_user, only: [:welcome, :new]
 
    def welcome
-      @workouts = Workout.all.includes(:user)
    end
 
    def new

@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       end
    end
 
+   def redirect_if_current_user
+      if current_user
+         redirect_to workouts_path
+      end
+   end
+
 end

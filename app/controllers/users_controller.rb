@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
    before_action :require_login, only: [:show]
+   before_action :redirect_if_current_user, only: [:new]
    
    def new
       @user = User.new
