@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
+  validates :password, confirmation: true
   before_save { self.email = email.downcase }
   
 end
