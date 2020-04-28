@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
          flash[:message] = "Welcome back #{@user.username}!"
          redirect_to @user
       else
-         flash[:error] = "Sorry! The information you have entered in invalid. Please try again."
+         flash[:error] = "Sorry! The information you have entered in invalid. Please try again or sign up."
          redirect_to login_path
       end
    end 

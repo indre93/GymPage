@@ -1,12 +1,6 @@
 <h1>Log In</h1>
 
-<% if flash[:error] %>
-   <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
-<% end %>
-
-<% if flash[:message] %>
-   <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
-<% end %>
+<%= render partial: "layouts/alerts", locals: { object: @user } %>
 
 <div class="login-form">
    <%= form_for(:user) do |f| %>

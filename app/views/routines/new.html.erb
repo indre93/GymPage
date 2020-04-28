@@ -1,8 +1,6 @@
 <h1>Adding Routine For</h1>
 
-<% if flash[:error] %>
-   <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
-<% end %>
+<%= render partial: "layouts/alerts", locals: { object: @routine } %>
 
 <div class="routine-form">
    <%= form_for([@workout, @routine]) do |f| %>
@@ -17,7 +15,7 @@
       
       <br><br>
 
-      <%= f.fields_for :exercise do |exercise_field| %>
+      <%= f.fields_for @routine.build_exercise do |exercise_field| %>
          <h3><%= exercise_field.label :name, "Or Add New Exercise" %></h3>
          <%= exercise_field.text_field :name %><br>
          <%= exercise_field.select :category, options_for_select(category_options), prompt: "Select a Category" %>
@@ -26,7 +24,7 @@
       <br><br>
 
       <legend><%= f.label :caption, "Exercise Rotine" %></legend><br>
-      <%= f.text_field :caption, required: true %><br>
+      <%= f.text_field :caption %><br>
 
       <%= f.submit "Add Routine" %>
       </fieldset>

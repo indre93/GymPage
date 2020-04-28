@@ -1,8 +1,6 @@
 <h1>Sign Up</h1>
 
-<% if flash[:error] %>
-   <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
-<% end %>
+<%= render partial: "layouts/alerts", locals: { object: @user } %>
 
 <div class="signup-form">
    <%= form_for(@user) do |f| %>

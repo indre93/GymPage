@@ -1,5 +1,7 @@
 <h1>All Routines Completed</h1>
 
+<%= render partial: "layouts/alerts", locals: { object: @routines } %>
+
 <div class="exercise-routine">
 <% if @routines.empty? %>
    <h3>No routine has been completed for this exercise:</h3>

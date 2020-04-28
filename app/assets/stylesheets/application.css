@@ -80,26 +80,34 @@ nav li.active {
    border-radius: 30px;
 }
 
-.flash-message {
+.message_explanation {
    display: inline-block;
    width: auto;
-   padding: 10px 20px;
-   color: rgb(15, 103, 15);
+   padding: 10px 15px;
    font-weight: bold;
    margin-bottom: 35px;
-   background-color: rgb(131, 231, 131);
    border-radius: 5px;
+   background-color: rgb(131, 231, 131);
+   color: rgb(15, 103, 15);
 }
 
-.flash-error {
+.error_explanation {
    display: inline-block;
    width: auto;
-   padding: 10px 20px;
-   color: rgb(181, 16, 16);
+   padding: 10px 15px;
    font-weight: bold;
    margin-bottom: 35px;
-   background-color: lightpink;
    border-radius: 5px;
+   background-color: lightpink;
+   color: rgb(181, 16, 16);
+}
+
+.error_explanation ol {
+   list-style-position: inside;
+}
+
+.error_explanation li {
+   text-align: left;
 }
 
 body {

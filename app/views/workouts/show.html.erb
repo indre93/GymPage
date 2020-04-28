@@ -1,8 +1,6 @@
 <h1><%= workout_username(@workout) %>'s workout for</h1>
 
-<% if flash[:message] %>
-   <p class="flash-message"><%= flash[:message] if flash[:message] %></p>
-<% end %>
+<%= render partial: "layouts/alerts", locals: { object: @workout } %>
 
 <div>
    <h2><%= workout_date(@workout) %></h2>
@@ -25,5 +23,3 @@
 <% end %>
 
 <br>
-
-<%= link_to 'Back', :back %>

@@ -3,7 +3,7 @@ class WorkoutsController < ApplicationController
 
    def new
       @workout = Workout.new
-      5.times do
+      3.times do
          routines = @workout.routines.build
          routines.build_exercise
       end
@@ -11,8 +11,8 @@ class WorkoutsController < ApplicationController
 
    def create
       @workout = current_user.workouts.build(workout_params)
-      if @workout.save && !@workout.exercises.empty?
-         flash[:message] = "Workout has been successfully added!"
+      if @workout.save
+         flash[:message] = "Successfully added workout!"
          redirect_to workout_path(@workout)
       else
          flash[:error] = "Unable to add workout. #{@workout.errors.full_messages.to_sentence}"
@@ -21,17 +21,13 @@ class WorkoutsController < ApplicationController
    end
 
    def show
-      find_workout
+      @workout = Workout.all.includes(:exercises).find_by(id: params[:id])
    end
 
    private
 
    def workout_params
       params.require(:workout).permit(:date, :duration, :description, routines_attributes: [:caption, :exercise_id, exercise_attributes: [:name, :category]])
-   end
-
-   def find_workout
-      @workout = Workout.all.includes(:exercises).find_by(id: params[:id])
    end
 
 end

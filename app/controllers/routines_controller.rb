@@ -5,7 +5,8 @@ class RoutinesController < ApplicationController
       @exercise = Exercise.find_by(id: params[:exercise_id])
       if params[:exercise_id] && @exercise
          @routines = @exercise.routines
-      else 
+      else
+         @error = "Exercise was not found." if params[:exercise_id]
          @routines = Routine.all.includes(:workout, :exercise)
       end
    end
@@ -14,9 +15,8 @@ class RoutinesController < ApplicationController
       find_workout
       if @workout && @workout.user == current_user
          @routine = @workout.routines.build
-         @routine.build_exercise
       else
-         flash[:error] = "Sorry! We were unable to find this workout. Please try again."
+         flash[:error] = "Sorry! workout was not found. Please try again."
          redirect_to user_path(current_user)
       end
    end
@@ -25,11 +25,10 @@ class RoutinesController < ApplicationController
       find_workout
       @routine = @workout.routines.build(routine_params)
       if @routine.save
-         flash[:message] = "Routine was successfully added!"
+         flash[:message] = "Successfully added routine!"
          redirect_to workout_path(@routine.workout)
       else
-         flash[:error] = "Unable to add routine. #{@routine.errors.full_messages.to_sentence}"
-         redirect_to action: :new
+         render :new
       end
    end
 

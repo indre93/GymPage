@@ -1,8 +1,6 @@
 <h1>Add a Workout</h1>
 
-<% if flash[:error] %>
-  <p class="flash-error"><%= flash[:error] if flash[:error] %></p>
-<% end %>
+<%= render partial: "layouts/alerts", locals: { object: @workout } %>
 
 <div class="workout-form">
    <%= form_for(@workout) do |f| %>
