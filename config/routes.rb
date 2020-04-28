@@ -18,4 +18,5 @@ Rails.application.routes.draw do
    
    resources :routines, only: [:index]
    
+   get '/auth/:provider/callback' => 'sessions#google'
 end

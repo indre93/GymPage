@@ -2,21 +2,10 @@
 
 <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
-<% if !logged_in? %>
-   <div class="new-user-links">
-      <%= link_to "Log In", login_path, method: :get %>
-      Or
-      <%= link_to "Sign Up", new_user_path, method: :get %>
+<div class="new-user-links">
+   <%= link_to "Log In", login_path, method: :get %>
+   <%= link_to "Sign Up", new_user_path, method: :get %>
+   <div class="google-login">
+      <%= link_to "Log In with Google", '/auth/google_oauth2' %>
    </div>
-<% end %>
-
-<fieldset>
-<legend>Recent Workouts Posted: </legend>
-   <% @workouts.order(created_at: :desc).each do |workout| %>
-      <big><%= link_to workout_username(workout), user_path(workout.user) %></big><br>
-      <%= workout_posted_at(workout) %><br>
-      "<%= workout.description %>" -
-      <%= link_to "See more", user_workout_path(workout.user, workout) %><br>
-      <br>
-   <% end %>
-</fieldset>   
+</div>

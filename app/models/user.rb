@@ -8,5 +8,6 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :password, confirmation: true
   before_save { self.email = email.downcase }
+  before_save { self.username = username.parameterize(separator: '_') }
   
 end

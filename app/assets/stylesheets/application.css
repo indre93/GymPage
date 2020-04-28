@@ -55,7 +55,7 @@ nav li a {
    display: block;
    color: white;
    text-align: center;
-   padding: 1rem 0.5rem;
+   padding: 1rem 0.9rem;
    border-radius: 30px;
    display: flex;
    align-items: flex-start;
@@ -253,8 +253,33 @@ select:focus {
    background-color: moccasin;
 }
 
-input[type=submit],
+.new-user-links {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   margin: 35px;
+   font-optical-sizing: 120%;
+}
+
 .new-user-links a {
+   margin: 5px;
+   padding: 1rem 1rem;
+   text-decoration: none;
+   text-transform: uppercase;
+   width: 20%;
+   background: #e22e0ee0;
+   color: rgb(208, 203, 203);
+   border-radius: 20px;
+}
+
+.google-login a {
+   border-radius: 20px;
+   padding: 1.1rem 1.2rem;
+   width: 20%;
+}
+
+input[type=submit] {
    width: 20%;
    background: #e22e0ee0;
    color: white;
@@ -263,19 +288,6 @@ input[type=submit],
    border-radius: 30px;
    border: none;
    cursor: pointer;
-}
-
-.new-user-links a {
-   margin: 15px;
-   padding: 10px 50px;
-   text-decoration: none;
-   text-shadow: none;
-   text-transform: uppercase;
-}
-
-.new-user-links {
-   padding-top: 20px;
-   padding-bottom: 60px;
 }
 
 input[type=submit]:hover,
