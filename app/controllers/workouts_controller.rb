@@ -1,6 +1,10 @@
 class WorkoutsController < ApplicationController
    before_action :require_login
 
+   def index
+      @workouts = Workout.all.includes(:user)
+   end
+
    def new
       @workout = Workout.new
       3.times do
