@@ -4,10 +4,10 @@ class RoutinesController < ApplicationController
    def index
       @exercise = Exercise.find_by(id: params[:exercise_id])
       if params[:exercise_id] && @exercise
-         @routines = @exercise.routines
+         @routines = @exercise.routines.by_created_at
       else
          @error = "Exercise was not found." if params[:exercise_id]
-         @routines = Routine.all.includes(:workout, :exercise)
+         @routines = Routine.by_created_at.includes(:workout, :exercise)
       end
    end
 
@@ -35,7 +35,12 @@ class RoutinesController < ApplicationController
    private
 
    def routine_params
-      params.require(:routine).permit(:caption, :workout_id, :exercise_id, exercise_attributes: [:name, :category])
+      params.require(:routine).permit(:caption, :workout_id, :exercise_id, 
+         exercise_attributes: [
+            :name, 
+            :category
+         ]
+      )
    end
 
    def find_workout

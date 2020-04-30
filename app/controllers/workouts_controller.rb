@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
    before_action :require_login
 
    def index
-      @workouts = Workout.all.includes(:user)
+      @recent_workouts = Workout.recently_created.includes(:user)
    end
 
    def new
@@ -31,7 +31,16 @@ class WorkoutsController < ApplicationController
    private
 
    def workout_params
-      params.require(:workout).permit(:date, :duration, :description, routines_attributes: [:caption, :exercise_id, exercise_attributes: [:name, :category]])
+      params.require(:workout).permit(:date, :duration, :description, 
+         routines_attributes: [
+            :caption, 
+            :exercise_id, 
+            exercise_attributes: [
+               :name, 
+               :category
+            ]
+         ]
+      )
    end
 
 end

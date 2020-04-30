@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
    before_action :require_login
 
    def index
-      @exercises = Exercise.all
+      @exercises = Exercise.by_created_at
    end
 
    def show

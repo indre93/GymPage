@@ -4,6 +4,9 @@ class Routine < ApplicationRecord
 
    validates :caption, presence: true
    validates_associated :exercise
+   validates_uniqueness_of :exercise_id, :scope => :workout_id
+
+   scope :by_created_at, -> { order("created_at desc") }
 
    def exercise_attributes=(attributes)
       if !attributes.values.any?(&:empty?)
