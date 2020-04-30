@@ -14,7 +14,7 @@ class Workout < ApplicationRecord
    end
 
    def execise_exist?
-      !routine_params["exercise_attributes"].values.any?(&:empty?) || !!routine_params["exercise_id"])
+      !routine_params["exercise_attributes"].values.any?(&:empty?) || !!routine_params["exercise_id"]
    end
 
 end

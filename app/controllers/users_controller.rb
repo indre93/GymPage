@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
    def show
       @user = User.find_by(id: params[:id])
-      @workouts = @user.workouts.by_completion_date
+      @workouts = @user.workouts.by_completion_date.includes(:exercises)
    end
 
    private
