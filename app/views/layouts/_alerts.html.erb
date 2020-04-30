@@ -1,16 +1,16 @@
 <% if object.try(:errors).try(:any?) %>
-  <div class="error_explanation">
-    <h3>
-      We've encountered 
-      <%= pluralize(object.errors.count, "error") %>:
-    </h3>
- 
-    <ol>
-    <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ol>
-  </div>
+   <div class="error_explanation">
+      <h3>
+         We've encountered 
+         <%= pluralize(object.errors.count, "error") %>:
+      </h3>
+   
+      <ol>
+         <% object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ol>
+   </div>
 <% elsif flash[:error] %>
    <p class="error_explanation"><%= flash[:error] if flash[:error] %></p>
 <% elsif flash[:message] %>

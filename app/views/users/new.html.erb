@@ -1,21 +1,23 @@
 <h1>Sign Up</h1>
 
-<%= render partial: "layouts/alerts", locals: { object: @user } %>
+<div class="content">
+   <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
-<div class="signup-form">
-   <%= form_for(@user) do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username, required: true %><br>
+   <div class="signup-form">
+      <%= form_for(@user) do |f| %>
+         <%= f.label :username %>
+         <%= f.text_field :username, required: true %><br>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, required: true %><br>
+         <%= f.label :email %>
+         <%= f.email_field :email, required: true %><br>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, required: true %><br>
+         <%= f.label :password %>
+         <%= f.password_field :password, required: true %><br>
 
-      <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation, required: true %><br>
+         <%= f.label :password_confirmation, "Password Confirmation" %>
+         <%= f.password_field :password_confirmation, required: true %><br>
 
-      <%= f.submit %>
-   <% end %>
+         <%= f.submit %>
+      <% end %>
+   </div>
 </div>

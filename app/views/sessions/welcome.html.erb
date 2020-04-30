@@ -1,11 +1,13 @@
 <h1>Welcome to GymPage!</h1>
 
-<%= render partial: "layouts/alerts", locals: { object: @user } %>
+<div class="content">
+   <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
-<div class="new-user-links">
-   <%= link_to "Log In", login_path, method: :get %>
-   <%= link_to "Sign Up", new_user_path, method: :get %>
-   <div class="google-login">
-      <%= link_to "Log In with Google", '/auth/google_oauth2' %>
+   <div class="new-user-links">
+      <ul>
+         <li><%= link_to "Log In", login_path, method: :get %></li>
+         <li><%= link_to "Sign Up", new_user_path, method: :get %></li>
+         <li class="google-login"><%= link_to "Login with Google", '/auth/google_oauth2' %></li>
+      </ul>
    </div>
 </div>

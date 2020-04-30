@@ -25,10 +25,9 @@
 nav {
    top: 0rem;
    width: 100%;
-   padding: 10px 0px;
-   box-sizing: border-box;
-   background-image: url('dark-gray.jpg');
-   box-shadow: 0px 0px 15px 15px rgb(0, 0, 0);
+   padding: 10px 0px 10px 0px;
+   background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
+   box-shadow: 0px 0px 7px 7px black;
    overflow: hidden;
    position: fixed;
    font-size: 17px;
@@ -39,8 +38,8 @@ nav ul {
    margin: 0;
    padding: 0;
    width: 100%;
-   background-image: linear-gradient(360deg, #f3c428, #e22e0ee0);
-   box-shadow: 0px 7px 7px 0px black;
+   background-image: url('dark-gray.jpg');
+   box-shadow: 0px 0px 7px 7px black;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
@@ -55,29 +54,31 @@ nav li a {
    display: block;
    color: white;
    text-align: center;
-   padding: 1rem 0.9rem;
-   border-radius: 30px;
+   background-image: linear-gradient(360deg, #f5c21c, #dd2404e0);
+   box-shadow: 0px 7px 7px 0px black;
+   padding: 1rem 1.5rem;
+   border-radius: 15px;
    display: flex;
    align-items: flex-start;
 }
 
 nav li a:hover {
-   transition: all 10ms ease;
    background-image: linear-gradient(180deg, #f3c428, #e22e0ee0);
-   box-shadow: 0px 7px 7px 0px black;
+   transition: all 0.4s ease;
 }
 
 nav li a:active {
    font-size: 90%;
+   box-shadow: 0px 0px 0px 0px black;
 }
 
 nav li.active {
    background-image: url('dark-gray.jpg');
    color: white;
    text-align: center;
-   padding: 1rem 0.95rem;
+   padding: 1rem 1.5rem;
    text-decoration: none;
-   border-radius: 30px;
+   border-radius: 15px;
 }
 
 .message_explanation {
@@ -85,7 +86,7 @@ nav li.active {
    width: auto;
    padding: 10px 15px;
    font-weight: bold;
-   margin-bottom: 35px;
+   margin-bottom: 50px;
    border-radius: 5px;
    background-color: rgb(131, 231, 131);
    color: rgb(15, 103, 15);
@@ -96,7 +97,7 @@ nav li.active {
    width: auto;
    padding: 10px 15px;
    font-weight: bold;
-   margin-bottom: 35px;
+   margin-bottom: 50px;
    border-radius: 5px;
    background-color: lightpink;
    color: rgb(181, 16, 16);
@@ -113,7 +114,6 @@ nav li.active {
 body {
    background-image: url('gray-brick.jpg');
    font-size: 17px;
-
 }
 
 .wrapper {
@@ -121,12 +121,18 @@ body {
    background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
    box-shadow: 0px 50px 50px 0px rgba(0, 0, 0);
    margin: 200px auto;
-   max-width: 1000px;
-   min-height: 400px;
+   max-width: 900px;
    padding: 50px 50px 50px 50px;
    line-height: 25px;
    color: white;
    border-radius: 10px;
+}
+
+.content {
+   box-sizing: border-box;
+   justify-content: center;
+   padding: 50px 50px 0px 50px;
+   min-height: 300px;
 }
 
 h1,
@@ -143,12 +149,6 @@ h1 {
    background-image: url('dark-gray.jpg');
    box-shadow: 0 5px 5px rgb(0, 0, 0);
    border-radius: 30px;
-   margin-bottom: 50px;
-}
-
-h2 {
-   margin-bottom: 25px;
-   margin-top: 25px;
 }
 
 .wrapper a {
@@ -165,8 +165,7 @@ h2 {
 }
 
 fieldset {
-   margin-bottom: 20px;
-   padding: 20px 20px 20px 0px;
+   padding: 20px;
    border-radius: 10px;
    border-color: rgb(90, 89, 89);
 }
@@ -253,38 +252,36 @@ select:focus {
    background-color: moccasin;
 }
 
-.new-user-links {
+.new-user-links li {
+   list-style-type: none;
    display: flex;
    justify-content: center;
-   align-items: center;
    flex-wrap: wrap;
-   margin: 35px;
-   font-optical-sizing: 120%;
 }
 
+.google-login a,
 .new-user-links a {
+   align-content: center;
    margin: 5px;
    padding: 1rem 1rem;
    text-decoration: none;
-   text-transform: uppercase;
-   width: 20%;
    background: #e22e0ee0;
-   color: rgb(208, 203, 203);
+   color: white;
    border-radius: 20px;
+   width: 50%;
 }
 
 .google-login a {
-   border-radius: 20px;
-   padding: 1.1rem 1.2rem;
-   width: 20%;
+   background: #200ee2e0;
 }
 
 input[type=submit] {
-   width: 20%;
+   display: inline-block;
+   width: 50%;
    background: #e22e0ee0;
    color: white;
-   padding: 10px;
-   margin-top: 40px;
+   padding: 20px;
+   margin-top: 50px;
    border-radius: 30px;
    border: none;
    cursor: pointer;
@@ -292,6 +289,14 @@ input[type=submit] {
 
 input[type=submit]:hover,
 .new-user-links a:hover {
-   background-image: linear-gradient(360deg, #e22e0ee0, #f3c428);
+   background-image: linear-gradient(180deg, #9b210be0, #f83e1de0);
    transition: all 0.4s ease;
+}
+
+.new-user-links a:hover {
+   font-size: 110%;
+}
+
+.google-login a:hover {
+   background-image: linear-gradient(180deg, #110789, #4c47eb);
 }

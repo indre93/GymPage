@@ -1,15 +1,17 @@
 <h1>Log In</h1>
 
-<%= render partial: "layouts/alerts", locals: { object: @user } %>
+<div class="content">
+   <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
-<div class="login-form">
-   <%= form_for(:user) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email, required: true %><br>
+   <div class="login-form">
+      <%= form_for(:user) do |f| %>
+         <%= f.label :email %>
+         <%= f.email_field :email, required: true %><br>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, required: true %><br>
+         <%= f.label :password %>
+         <%= f.password_field :password, required: true %><br>
 
-      <%= f.submit "Log In" %>
-   <% end %>
+         <%= f.submit "Log In" %>
+      <% end %>
+   </div>
 </div>

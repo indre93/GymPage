@@ -1,25 +1,27 @@
 <h1><%= workout_username(@workout) %>'s workout for</h1>
 
-<%= render partial: "layouts/alerts", locals: { object: @workout } %>
+<div class="content">
+   <%= render partial: "layouts/alerts", locals: { object: @workout } %>
 
-<div>
-   <h2><%= workout_date(@workout) %></h2>
-   "<%= @workout.description %>"<br>
-   <%= @workout.duration %>
-   <br><br>
-</div>
+   <div>
+      <h2><%= workout_date(@workout) %></h2>
+      <p>"<%= @workout.description %>"</p>
+      <p><%= @workout.duration %></p>
+      <br>
+   </div>
 
-<div class="exercise-routines">
-   <% @workout.routines.each do |routine| %>
-      <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h3>
-      <h5><%= routine_exercise_category(routine) %></h5>
-      "<%= routine.caption %>"
-      <br><br>
+   <div class="exercise-routines">
+      <% @workout.routines.each do |routine| %>
+         <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h3>
+         <h5><%= routine_exercise_category(routine) %></h5>
+         <p>"<%= routine.caption %>"</p>
+         <br>
+      <% end %>
+   </div>
+
+   <br>
+
+   <% if current_user.id == @workout.user_id %>
+      <p><%= link_to "Add Another Routine", new_workout_routine_path(@workout) %></p>
    <% end %>
 </div>
-
-<% if current_user.id == @workout.user_id %>
-   <br><%= link_to "Add Another Routine", new_workout_routine_path(@workout) %>
-<% end %>
-
-<br>

@@ -1,20 +1,16 @@
 <h1>All Routines Completed</h1>
 
-<%= render partial: "layouts/alerts", locals: { object: @routines } %>
+<div class="content">
+   <%= render partial: "layouts/alerts", locals: { object: @routines } %>
 
-<div class="exercise-routine">
-<% if @routines.empty? %>
-   <h3>No routine has been completed for this exercise:</h3>
-   <big><%= @exercise.name %></big>
-<% end %>
-
-<% @routines.order(created_at: :desc).each do |routine| %>
-   <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise) %></h3>
-   <h5><%=  routine_exercise_category(routine) %></h5>
-   <big><%= link_to routine_username(routine), user_path(routine_user(routine)) %></big> -
-   <%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %><br>
-   "<%= routine.caption %>"
-   
-   <br><br>
-<% end %>
+   <div class="exercise-routine">
+      <% @routines.each do |routine| %>
+         <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise) %></h3>
+         <h5><%=  routine_exercise_category(routine) %></h5>
+         <h5>Added:<%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %></h5>
+         <h5>By:<%= link_to routine_username(routine), user_path(routine_user(routine)) %></h5>
+         <p>"<%= routine.caption %>"</p>
+         <br>
+      <% end %>
+   </div>
 </div>
