@@ -10,10 +10,10 @@ class Workout < ApplicationRecord
    scope :by_completion_date, -> { order("date desc") }
 
    def reject_routines(routine_params)
-      routine_params.values.any?(&:empty?) && !exercise_exist?
+      routine_params.values.any?(&:empty?) && !exercise_exist?(routine_params)
    end
 
-   def execise_exist?
+   def exercise_exist?(routine_params)
       !routine_params["exercise_attributes"].values.any?(&:empty?) || !!routine_params["exercise_id"]
    end
 
