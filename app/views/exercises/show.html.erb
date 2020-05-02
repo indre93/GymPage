@@ -3,12 +3,9 @@
 <div class="content">
    <fieldset>
    <legend><h3><%= @exercise.name %></h3></legend>
-      <h4><%= @exercise.category %></h4>
-      <br>
-      <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend>
-      <br>
-      <p><%= link_to "View routines", exercise_routines_path(@exercise) %></p>
-      <br>
+      <h4><%= @exercise.category %></h4><br>
+      <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend><br>
+      <p><%= link_to "View routines", exercise_routines_path(@exercise) %></p><br>
    </fieldset>
 
    <br>
