@@ -175,6 +175,16 @@ h1 {
    text-align: left;
 }
 
+.workouts-index-page legend a {
+   text-decoration: none;
+   color: white;
+}
+
+.workouts-index-page legend a:hover {
+   font-size: 107%;
+   transition: all 0.4s ease;
+}
+
 fieldset {
    padding: 20px;
    border-radius: 10px;

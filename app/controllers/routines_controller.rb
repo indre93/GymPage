@@ -1,6 +1,6 @@
 class RoutinesController < ApplicationController
    before_action :require_login
-   before_action :find_workout, only: [:new, :create]
+   before_action :set_workout, only: [:new, :create]
 
    def index
       @exercise = Exercise.find_by(id: params[:exercise_id])
@@ -13,11 +13,11 @@ class RoutinesController < ApplicationController
    end
 
    def new 
-      if @workout && @workout.user == current_user
+      if @workout && current_users_workout?
          @routine = @workout.routines.build
          @routine.build_exercise
       else
-         flash[:error] = "Sorry! workout was not found. Please try again."
+         flash[:error] = "Sorry! You cannot make changes to someone else's workout"
          redirect_to user_path(current_user)
       end
    end
@@ -25,7 +25,7 @@ class RoutinesController < ApplicationController
    def create
       @routine = @workout.routines.build(routine_params)
       if @routine.save
-         flash[:message] = "Successfully added routine!"
+         flash[:message] = "Routine was successfully added!"
          redirect_to workout_path(@routine.workout)
       else
          render :new
@@ -43,7 +43,7 @@ class RoutinesController < ApplicationController
       )
    end
 
-   def find_workout
+   def set_workout
       @workout = Workout.find_by(id: params[:workout_id])
    end
 

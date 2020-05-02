@@ -2,15 +2,14 @@
 
 <div class="content">
    <div class="workouts-index-page">
-      <fieldset>
-      <legend>Recent Workouts Posted: </legend> 
+      <h2>Recent Workouts Posted: </h2><br>
       <% @recent_workouts.each do |workout| %>
-         <h3><%= link_to workout_username(workout), user_path(workout.user) %></h3>
-         <h5><%= workout_posted_at(workout) %></h5>
-         <p>"<%= workout.description %>"</p>
-         <p><%= link_to "See more", user_workout_path(workout.user, workout) %></p>
-         <br>
+         <fieldset>
+            <legend><%= link_to workout_username(workout), user_path(workout.user) %></legend>
+            <h5><%= workout_posted_at(workout) %></h5>
+            <p>"<%= workout.description %>"</p><br>
+            <p><%= link_to "See more", user_workout_path(workout.user, workout) %></p>
+         </fieldset>
       <% end %>
-      </fieldset>
    </div>
 </div>

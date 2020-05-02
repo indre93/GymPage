@@ -3,7 +3,6 @@
 <div class="content">
    <%= render partial: "layouts/alerts", locals: { object: @workout } %>
    <%= render partial: "layouts/alerts", locals: { object: @workout.routines } %>
-   <%= render partial: "layouts/alerts", locals: { object: @workout.exercises } %>
 
    <div class="workout-form">
       <%= form_for(@workout) do |f| %>
@@ -44,7 +43,7 @@
             <% end %>      
          </div>
 
-         <%= f.submit "Add Workout" %>
+         <%= f.submit %>
       <% end %>
    </div>
 </div>
