@@ -11,18 +11,18 @@
 
    <nav>
       <ul>
-      <% if logged_in? %>
-         <%= link_to_in_li("GymPage", workouts_path) %>
-         <%= link_to_in_li("#{current_user.username}'s Workouts", current_user) %>
-         <%= link_to_in_li("Add New Workout", new_workout_path) %>
-         <%= link_to_in_li("All Exercises", exercises_path) %>
-         <%= link_to_in_li("All Routines", routines_path) %>
-         <li><%= link_to("Log Out", logout_path, method: :delete) %></li>
-      <% else %>
-         <%= link_to_in_li("GymPage", root_path) %>
-         <%= link_to_in_li("Log In", login_path) %>
-         <%= link_to_in_li("Sign Up", new_user_path) %>
-      <% end %>
+         <% if logged_in? %>
+            <%= link_to_in_li("GymPage", workouts_path) %>
+            <%= link_to_in_li("#{current_user.username}'s Workouts", current_user) %>
+            <%= link_to_in_li("Add New Workout", new_workout_path) %>
+            <%= link_to_in_li("All Exercises", exercises_path) %>
+            <%= link_to_in_li("All Routines", routines_path) %>
+            <li><%= link_to("Log Out", logout_path, method: :delete) %></li>
+         <% else %>
+            <%= link_to_in_li("GymPage", root_path) %>
+            <%= link_to_in_li("Log In", login_path) %>
+            <%= link_to_in_li("Sign Up", new_user_path) %>
+         <% end %>
       </ul>
    </nav>
    
