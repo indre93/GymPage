@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-   helper_method :current_user, :logged_in?
+   helper_method :current_user, :logged_in?, :current_users_workout?
 
    def current_user
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
       if current_user
          redirect_to workouts_path
       end
+   end
+
+   def current_users_workout?
+      current_user == @workout.user
    end
 
 end
