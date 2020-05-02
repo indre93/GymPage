@@ -9,24 +9,22 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
    </head>
 
-   <header>
-      <nav>
-         <ul>
-         <% if logged_in? %>
-            <li class="<%= active_page?(workouts_path) %>"><%= link_to_unless_current("GymPage", workouts_path) %></li>
-            <li class="<%= active_page?(current_user) %>"><%= link_to_unless_current("#{current_user.username}'s Workouts", current_user) %></li>
-            <li class="<%= active_page?(new_workout_path) %>"><%= link_to_unless_current("Add New Workout", new_workout_path) %></li>
-            <li class="<%= active_page?(exercises_path) %>"><%= link_to_unless_current("All Exercises", exercises_path) %></li>
-            <li class="<%= active_page?(routines_path) %>"><%= link_to_unless_current("All Routines", routines_path) %></li>
-            <li><%= link_to_unless_current("Log Out", logout_path, method: :delete) %></li>
-         <% else %>
-            <li class="<%= active_page?(root_path) %>"><%= link_to_unless_current("GymPage", root_path) %></li>
-            <li class="<%= active_page?(login_path) %>"><%= link_to_unless_current("Log In", login_path) %></li>
-            <li class="<%= active_page?(new_user_path) %>"><%= link_to_unless_current("Sign Up", new_user_path) %></li>
-         <% end %>
-         </ul>
-      </nav>
-   </header>
+   <nav>
+      <ul>
+      <% if logged_in? %>
+         <%= link_to_in_li("GymPage", workouts_path) %>
+         <%= link_to_in_li("#{current_user.username}'s Workouts", current_user) %>
+         <%= link_to_in_li("Add New Workout", new_workout_path) %>
+         <%= link_to_in_li("All Exercises", exercises_path) %>
+         <%= link_to_in_li("All Routines", routines_path) %>
+         <li><%= link_to("Log Out", logout_path, method: :delete) %></li>
+      <% else %>
+         <%= link_to_in_li("GymPage", root_path) %>
+         <%= link_to_in_li("Log In", login_path) %>
+         <%= link_to_in_li("Sign Up", new_user_path) %>
+      <% end %>
+      </ul>
+   </nav>
    
    <body>
       <div class="wrapper">

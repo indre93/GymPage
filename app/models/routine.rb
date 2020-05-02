@@ -6,7 +6,7 @@ class Routine < ApplicationRecord
 
    validates :caption, presence: true
    validates_associated :exercise
-   validates_uniqueness_of :exercise_id, :scope => :workout_id
+   validates_uniqueness_of :exercise_id, :scope => :workout_id, message: "has already been added"
    
    def exercise_attributes=(attributes)
       if self.exercise_id

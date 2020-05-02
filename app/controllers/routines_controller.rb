@@ -1,5 +1,6 @@
 class RoutinesController < ApplicationController
    before_action :require_login
+   before_action :find_workout, only: [:new, :create]
 
    def index
       @exercise = Exercise.find_by(id: params[:exercise_id])
@@ -12,7 +13,6 @@ class RoutinesController < ApplicationController
    end
 
    def new 
-      find_workout
       if @workout && @workout.user == current_user
          @routine = @workout.routines.build
          @routine.build_exercise
@@ -23,7 +23,6 @@ class RoutinesController < ApplicationController
    end
 
    def create
-      find_workout
       @routine = @workout.routines.build(routine_params)
       if @routine.save
          flash[:message] = "Successfully added routine!"

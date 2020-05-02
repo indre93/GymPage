@@ -3,12 +3,16 @@
 <div class="content">
    <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
-   <% @workouts.each do |workout| %>
-      <fieldset>
-         <legend><%= workout_date(workout) %></legend>
-         <p>"<%= workout.description %>"</p>
-         <p><%= workout.duration %></p><br>
-         <p><%= link_to "See More Details", user_workout_path(workout.user, workout) %></p>
-      </fieldset>
+   <% if @workouts.empty? %>
+      <h2>You have 0 workouts so far. Add your first workout<%= link_to "here", new_workout_path %></h2>
+   <% else %>
+      <% @workouts.each do |workout| %>
+         <fieldset>
+            <legend><%= workout_date(workout) %></legend>
+            <p>"<%= workout.description %>"</p>
+            <p><%= workout.duration %></p><br>
+            <p><%= link_to "See More Details", user_workout_path(workout.user, workout) %></p>
+         </fieldset>
+      <% end %>
    <% end %>
 </div>

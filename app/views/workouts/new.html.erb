@@ -27,7 +27,7 @@
          <div class="add-routine-exercise">
             <%= f.fields_for :routines do |routine_field| %>
                <fieldset>
-                  <legend><%= routine_field.label :exercise_id, "Select Exercise" %></legend>
+                  <legend><%= routine_field.label :exercise_id, "Select Existing Exercise" %></legend>
                   <%= routine_field.collection_select(:exercise_id, Exercise.by_name, :id, :name, include_blank: true) %>
 
                   <%= routine_field.fields_for :exercise do |exercise_field| %>
