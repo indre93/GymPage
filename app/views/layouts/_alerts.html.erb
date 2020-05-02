@@ -1,10 +1,9 @@
 <% if object.try(:errors).try(:any?) %>
    <div class="error_explanation">
       <h3>
-         We've encountered 
+         <h3><%= object.class %></h3> contains 
          <%= pluralize(object.errors.count, "error") %>:
       </h3>
-   
       <ol>
          <% object.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>

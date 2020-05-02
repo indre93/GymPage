@@ -15,6 +15,7 @@ class RoutinesController < ApplicationController
       find_workout
       if @workout && @workout.user == current_user
          @routine = @workout.routines.build
+         @routine.build_exercise
       else
          flash[:error] = "Sorry! workout was not found. Please try again."
          redirect_to user_path(current_user)

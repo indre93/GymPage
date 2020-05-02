@@ -11,6 +11,7 @@
    </div>
 
    <div class="exercise-routines">
+      <h2>Exercises Completed: </h2><br>
       <% @workout.routines.each do |routine| %>
          <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h3>
          <h5><%= routine_exercise_category(routine) %></h5>

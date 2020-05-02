@@ -5,24 +5,10 @@
 
    <% @workouts.each do |workout| %>
       <fieldset>
-      <legend><%= workout_date(workout) %></legend>
+         <legend><%= workout_date(workout) %></legend>
          <p>"<%= workout.description %>"</p>
-         <p><%= workout.duration %></p>
-         <p><%= link_to "See More Details", workout %></p>
-         
-         <br>
-
-         <h2>Exercises Completed: </h2><br>
-         <% workout.exercises.each do |exercise| %>
-            <h3><%= link_to exercise.name, exercise_path(exercise) %></h3>
-            <h5><%= exercise.category %></h5>
-         <% end %>
-
-         <br><br>
-
-         <% if current_user.id == workout.user_id %>
-            <p><%= link_to "Add Another Routine", new_workout_routine_path(workout) %></p>
-         <% end %>
+         <p><%= workout.duration %></p><br>
+         <p><%= link_to "See More Details", user_workout_path(workout.user, workout) %></p>
       </fieldset>
    <% end %>
 </div>

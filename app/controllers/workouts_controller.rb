@@ -7,7 +7,7 @@ class WorkoutsController < ApplicationController
 
    def new
       @workout = Workout.new
-      3.times do
+      2.times do
          routines = @workout.routines.build
          routines.build_exercise
       end
@@ -19,8 +19,7 @@ class WorkoutsController < ApplicationController
          flash[:message] = "Successfully added workout!"
          redirect_to workout_path(@workout)
       else
-         flash[:error] = "Unable to add workout. #{@workout.errors.full_messages.to_sentence}"
-         redirect_to action: :new
+         render :new
       end
    end
 
@@ -33,7 +32,7 @@ class WorkoutsController < ApplicationController
    def workout_params
       params.require(:workout).permit(:date, :duration, :description, 
          routines_attributes: [
-            :caption, 
+            :caption,
             :exercise_id, 
             exercise_attributes: [
                :name, 

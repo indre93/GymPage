@@ -2,30 +2,28 @@
 
 <div class="content">
    <%= render partial: "layouts/alerts", locals: { object: @routine } %>
+   <%= render partial: "layouts/alerts", locals: { object: @routine.exercise } %>
+
+   <h2><%= workout_date(@workout) %>'s Workout</h2>
+
+   <br><br>
 
    <div class="routine-form">
       <%= form_for([@workout, @routine]) do |f| %>
-
-         <h2><%= workout_date(@workout) %>'s Workout</h2>
-            
-         <br><br>
-
          <fieldset>
-         <legend><%= f.label :exercise_id, "Select Existing Exercise" %></legend>
-         <%= f.collection_select :exercise_id, Exercise.by_name, :id, :name, include_blank: true %>
+            <legend><%= f.label :exercise_id, "Select Existing Exercise" %></legend>
+            <%= f.collection_select :exercise_id, Exercise.by_name, :id, :name, include_blank: true %>
          
-         <br><br>
+            <%= f.fields_for :exercise do |exercise_field| %>
+               <legend><%= exercise_field.label :name, "Or Add New Exercise" %></legend>
+               <%= exercise_field.text_field :name, placeholder: "Exercise name" %><br>
 
-         <%= f.fields_for :exercise, @routine.build_exercise do |exercise_field| %>
-            <h3><%= exercise_field.label :name, "Or Add New Exercise" %></h3>
-            <%= exercise_field.text_field :name %><br>
-            <%= exercise_field.select :category, options_for_select(category_options), prompt: "Select a Category" %>
-         <% end %>
+               <%= exercise_field.label :category, "Category:" %><br>
+               <%= exercise_field.select :category, options_for_select(category_options), include_blank: true %>
+            <% end %>
 
-         <br><br>
-
-         <legend><%= f.label :caption, "Exercise Rotine" %></legend><br>
-         <%= f.text_field :caption %><br>
+            <legend><%= f.label :caption, "Exercise Rotine" %></legend>
+            <%= f.text_field :caption %>
          </fieldset>
 
          <%= f.submit "Add Routine" %>
