@@ -25,6 +25,11 @@ gem 'pry'
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+gem 'cocoon'
+
+gem 'data-confirm-modal'
+gem 'bootstrap', '~> 4.0'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

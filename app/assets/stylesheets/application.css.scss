@@ -10,9 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap";
+
+.custom-model {
+   .modal-header {
+      color: red
+   }
+}
 
 * {
    margin: 0;
@@ -130,7 +135,7 @@ body {
 .wrapper {
    box-sizing: border-box;
    background-image: linear-gradient(90deg, #e22e0ee0, #f3c428);
-   box-shadow: 0px 50px 50px 0px rgba(0, 0, 0);
+   box-shadow: 0px 50px 50px 0px black;
    margin: 200px auto;
    max-width: 900px;
    padding: 50px 50px 50px 50px;
@@ -193,7 +198,7 @@ fieldset {
 
 legend {
    background-image: url('dark-gray.jpg');
-   box-shadow: 0px 5px 5px rgba(0, 0, 0);
+   box-shadow: 0px 5px 5px black;
    color: white;
    border-radius: 10px;
    margin: 5px 5px;

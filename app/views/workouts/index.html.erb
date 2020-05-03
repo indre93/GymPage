@@ -1,6 +1,8 @@
 <h1>GymPage</h1>
 
 <div class="content">
+   <%= render partial: "layouts/alerts", locals: { object: @user } %>
+   
    <div class="workouts-index-page">
       <h2>Recent Workouts Posted: </h2><br>
       <% @recent_workouts.each do |workout| %>

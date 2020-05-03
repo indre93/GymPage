@@ -14,3 +14,15 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require data-confirm-modal
+//= require cocoon
+
+dataConfirmModal.setDefaults({
+   title: 'Confirm your action',
+   commit: 'Continue',
+   cancel: 'Cancel',
+   modalClass: 'custom-model'
+})
