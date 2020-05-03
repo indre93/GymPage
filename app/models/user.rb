@@ -11,4 +11,12 @@ class User < ApplicationRecord
    before_save { self.email = email.downcase }
    before_save { self.username = username.parameterize(separator: '_') }
 
+   def self.from_omniauth(auth)
+      self.find_or_create_by(email: auth.info.email) do |user|
+         user.username = auth.info.name
+         user.email = auth.info.email
+         user.password = SecureRandom.hex(10)
+      end
+   end
+
 end
