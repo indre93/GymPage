@@ -1,5 +1,4 @@
 class RoutinesController < ApplicationController
-   before_action :require_login
    before_action :set_workout, only: [:new, :create]
 
    def index
@@ -44,7 +43,12 @@ class RoutinesController < ApplicationController
    end
 
    def set_workout
-      @workout = Workout.find_by(id: params[:workout_id])
+      if @workout = Workout.find_by(id: params[:workout_id])
+         @workout
+      else
+         flash[:error] = "Sorry! this workout does not exist."
+         redirect_to user_path(current_user)
+      end 
    end
 
 end

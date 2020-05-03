@@ -1,5 +1,4 @@
 class WorkoutsController < ApplicationController
-   before_action :require_login
    before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
    def index
@@ -66,7 +65,12 @@ class WorkoutsController < ApplicationController
    end
 
    def set_workout
-      @workout = Workout.includes(:exercises).find_by(id: params[:id])
+      if @workout = Workout.includes(:exercises).find_by(id: params[:id])
+         @workout
+      else
+         flash[:error] = "Sorry! this workout does not exist."
+         redirect_to user_path(current_user)
+      end
    end
 
 end

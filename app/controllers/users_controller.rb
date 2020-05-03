@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-   before_action :require_login, only: [:show]
-   before_action :redirect_if_current_user, only: [:new]
+   skip_before_action :require_login, only: [:new, :create]
+   before_action :redirect_if_current_user, only: [:new, :create]
    
    def new
       @user = User.new
@@ -19,7 +19,12 @@ class UsersController < ApplicationController
 
    def show
       @user = User.find_by(id: params[:id])
-      @workouts = @user.workouts.by_completion_date.includes(:exercises)
+      if @user
+         @workouts = @user.workouts.by_completion_date.includes(:exercises)
+      else
+         flash[:error] = "Sorry! this user does not exist."
+         redirect_to workouts_path
+      end
    end
 
    private

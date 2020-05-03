@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+   skip_before_action :require_login
    before_action :redirect_if_current_user, only: [:welcome, :new]
 
    def welcome
