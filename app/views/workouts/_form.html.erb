@@ -1,0 +1,36 @@
+<%= render partial: "layouts/alerts", locals: { object: @workout } %>
+
+<div class="workout-form">
+   <%= form_for(@workout) do |f| %>
+      <div class="select-date">
+         <%= f.label :date %>
+         <%= f.date_select :date, order: [:month, :day, :year] %>
+      </div>
+      <div>
+         <%= f.label :duration %>
+         <%= f.text_field :duration, placeholder: "Please include hours/minutes" %><br>
+      </div>
+      <div>
+         <%= f.label :description, "Description" %>
+         <%= f.text_area :description %>    
+      </div>
+      
+      <!-- DOUBLE NESTED FORM -->
+
+      <div id="exercise-routines">
+         <%= f.fields_for :routines do |routine| %>
+            <%= render "routine_fields", f: routine %>
+         <% end %>      
+      </div>
+
+      <div class="btn btn-secondary btn-sm">
+         <div class="links">
+            <%= link_to_add_association "Add Another Exercise", f, :routines, 'data-association-insertion-node': "#exercise-routines", 'data-association-insertion-method': "append", :wrap_object => Proc.new {|routine| routine.build_exercise; routine } %>
+         </div>
+      </div>
+
+      <br>
+
+      <%= f.submit %>
+   <% end %>
+</div>

@@ -1,0 +1,27 @@
+<div class="nested-fields">
+   <div>
+      <%= f.label :exercise_id, "Select Existing Exercise" %>
+      <%= f.collection_select(:exercise_id, Exercise.by_name, :id, :name, include_blank: true) %>
+   </div>
+
+   <div>
+      <%= f.fields_for :exercise do |ff| %>
+         <%= ff.label :name, "Or Add New Exercise:" %>
+         <%= ff.text_field :name, placeholder: "Exercise name" %><br>
+
+         <%= ff.label :category, "Category:"  %>
+         <%= ff.select :category, options_for_select(category_options), include_blank: true %>
+      <% end %>
+   </div>
+
+   <%= f.label :caption, "Exercise Rotine" %>
+   <%= f.text_field :caption %>
+
+   <br><br>
+
+   <div class="btn btn-secondary btn-sm">
+      <%= link_to_remove_association "Remove Exercise", f %>
+   </div>
+
+   <br><br>
+</div>
