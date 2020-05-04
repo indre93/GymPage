@@ -14,8 +14,6 @@
          <%= f.label :description, "Description" %>
          <%= f.text_area :description %>    
       </div>
-      
-      <!-- DOUBLE NESTED FORM -->
 
       <div id="exercise-routines">
          <%= f.fields_for :routines do |routine| %>
@@ -25,7 +23,7 @@
 
       <div class="btn btn-secondary btn-sm">
          <div class="links">
-            <%= link_to_add_association "Add Another Exercise", f, :routines, 'data-association-insertion-node': "#exercise-routines", 'data-association-insertion-method': "append", :wrap_object => Proc.new {|routine| routine.build_exercise; routine } %>
+            <%= link_to_add_association "Add Another Exercise", f, :routines, wrap_object: Proc.new {|routine| routine.build_exercise; routine } %>
          </div>
       </div>
 

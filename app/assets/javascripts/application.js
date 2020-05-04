@@ -26,3 +26,9 @@ dataConfirmModal.setDefaults({
    cancel: 'Cancel',
    modalClass: 'custom-model'
 })
+
+$(document).ready(function () {
+   $(".links a").
+   data("association-insertion-method", 'append').
+   data("association-insertion-node", '#exercise-routines');
+});
