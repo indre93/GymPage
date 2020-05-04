@@ -5,22 +5,22 @@
    <%= render partial: "layouts/alerts", locals: { object: @routine.exercise } %>
 
    <div class="routine-form">
-      <h2><%= workout_date(@workout) %>'s Workout</h2><br>
+      <br><h2><%= workout_date(@workout) %>'s Workout</h2><br>
       
       <%= form_for([@workout, @routine]) do |f| %>
-         <%= f.label :exercise_id, "Select Existing Exercise" %><br>
-         <%= f.collection_select :exercise_id, Exercise.by_name, :id, :name, include_blank: true %><br>
+         <%= f.label :exercise_id, "Select Existing Exercise" %>
+         <%= f.collection_select :exercise_id, Exercise.by_name, :id, :name, include_blank: true %>
       
          <%= f.fields_for :exercise do |exercise_field| %>
-            <%= exercise_field.label :name, "Or Add New Exercise" %><br>
-            <%= exercise_field.text_field :name, placeholder: "Exercise name" %><br>
+            <%= exercise_field.label :name, "Or Add New Exercise" %>
+            <%= exercise_field.text_field :name, placeholder: "Exercise name" %>
 
-            <%= exercise_field.label :category, "Category:" %><br>
-            <%= exercise_field.select :category, options_for_select(category_options), include_blank: true %><br>
+            <%= exercise_field.label :category, "Category:" %>
+            <%= exercise_field.select :category, options_for_select(category_options), include_blank: true %>
          <% end %>
 
-         <%= f.label :caption, "Exercise Rotine" %><br>
-         <%= f.text_field :caption %><br>
+         <%= f.label :caption, "Exercise Rotine" %>
+         <%= f.text_field :caption %>
 
          <%= f.submit "Add Routine" %>
       <% end %>

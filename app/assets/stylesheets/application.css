@@ -65,6 +65,8 @@ nav li a {
 nav li a:hover {
    background-image: linear-gradient(180deg, #f3c428, #e22e0ee0);
    transition: all 0.4s ease;
+   text-decoration: none;
+   color: white;
 }
 
 nav li a:active {
@@ -147,7 +149,7 @@ body {
    box-sizing: border-box;
    justify-content: center;
    padding: 0px 50px 0px 50px;
-   min-height: 300px;
+
 }
 
 h1,
@@ -201,47 +203,25 @@ legend {
    font-size: 22px;
 }
 
-/* Login and SignUp Forms */
-.signup-form label,
-.login-form label {
+label {
    display: flex;
    justify-content: center;
    align-items: center;
    font-size: 16px;
-}
-
-.signup-form input,
-.login-form input {
-   box-sizing: border-box;
-   padding: 10px 10px 10px 10px;
-   margin: 5px;
-   border: 1px solid #ccc;
-   width: 50%;
-   border-radius: 5px;
-   display: inline-block;
-   font-size: 16px;
-}
-
-/* New Workout - first section */
-.workout-form label {
-   display: flex;
-   justify-content: center;
-   align-items: center;
 }
 
 .select-date label {
    display: inline;
 }
 
-/* New Workout - second section */
 input,
 textarea,
 select {
    box-sizing: border-box;
-   padding: 5px 5px 5px 5px;
+   padding: 10px 10px 10px 10px;
    margin: 5px;
    border: 1px solid #ccc;
-   width: 40%;
+   width: 50%;
    border-radius: 5px;
    display: inline-block;
    font-size: 16px;
@@ -265,6 +245,10 @@ input:focus,
 textarea:focus,
 select:focus {
    background-color: moccasin;
+}
+
+.new-user-links {
+   margin-top: 50px;
 }
 
 .new-user-links li {
@@ -314,4 +298,12 @@ input[type=submit]:hover,
 
 .google-login a:hover {
    background-image: linear-gradient(180deg, #110789, #4c47eb);
+}
+
+.btn-outline-dark:hover {
+   background-image: url('dark-gray.jpg');
+}
+
+a.remove_fields {
+   color: white;
 }
