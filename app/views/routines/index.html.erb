@@ -6,9 +6,9 @@
    <div class="exercise-routine">
       <% @routines.each do |routine| %>
          <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise) %></h3>
-         <h5><%=  routine_exercise_category(routine) %></h5>
-         <h5>Added:<%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %></h5>
-         <h5>By:<%= link_to routine_username(routine), user_path(routine_user(routine)) %></h5>
+         <h6><%= routine_exercise_category(routine) %></h6>
+         <h6><%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %></h6>
+         <h6><%= link_to routine_username(routine), user_path(routine_user(routine)) %></h6>
          <p>"<%= routine.caption %>"</p>
          <br>
       <% end %>

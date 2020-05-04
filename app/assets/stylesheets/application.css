@@ -10,14 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree .
+ *= require_self
  */
-@import "bootstrap";
-
-.custom-model {
-   .modal-header {
-      color: red
-   }
-}
 
 * {
    margin: 0;
@@ -87,25 +82,29 @@ nav li.active {
 }
 
 .message_explanation {
-   display: inline-block;
-   width: auto;
-   padding: 10px 15px;
-   font-weight: bold;
-   margin-bottom: 50px;
+   width: 100%;
+   display: grid;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin-top: 25px;
+   margin-bottom: 25px;
+   padding: 10px 10px;
    border-radius: 5px;
    background-color: rgb(131, 231, 131);
    color: rgb(15, 103, 15);
 }
 
 .error_explanation {
-   display: inline-block;
-   width: auto;
-   padding: 10px 15px;
-   font-weight: bold;
-   margin-bottom: 50px;
+   width: 100%;
+   display: grid;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin-top: 25px;
+   margin-bottom: 25px;
+   padding: 10px 10px;
    border-radius: 5px;
    background-color: lightpink;
-   color: rgb(181, 16, 16);
+   color: rgb(128, 30, 30);
 }
 
 .error_explanation ol {
@@ -147,7 +146,7 @@ body {
 .content {
    box-sizing: border-box;
    justify-content: center;
-   padding: 50px 50px 0px 50px;
+   padding: 0px 50px 0px 50px;
    min-height: 300px;
 }
 
@@ -159,12 +158,12 @@ h2,
 
 h1 {
    display: inline-block;
-   padding: 20px;
-   width: 80%;
+   padding: 5px 20px;
+   width: auto;
    color: white;
    background-image: url('dark-gray.jpg');
    box-shadow: 0 5px 5px rgb(0, 0, 0);
-   border-radius: 30px;
+   border-radius: 15px;
 }
 
 .wrapper a {
@@ -190,19 +189,15 @@ h1 {
    transition: all 0.4s ease;
 }
 
-fieldset {
-   padding: 20px;
-   border-radius: 10px;
-   border-color: rgb(90, 89, 89);
-}
-
 legend {
    background-image: url('dark-gray.jpg');
    box-shadow: 0px 5px 5px black;
    color: white;
    border-radius: 10px;
-   margin: 5px 5px;
-   padding: 1px 15px;
+   margin: 10px 5px;
+   padding: 3px 3px;
+   width: auto;
+   min-width: 50%;
    font-size: 22px;
 }
 
@@ -239,12 +234,6 @@ legend {
 }
 
 /* New Workout - second section */
-.add-routine-exercise label {
-   display: flex;
-   margin-top: 5px;
-   margin-bottom: 5px;
-}
-
 input,
 textarea,
 select {
