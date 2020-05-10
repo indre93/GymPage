@@ -6,22 +6,19 @@
    <div>
       <h2><%= workout_date(@workout) %></h2>
       <h6><%= @workout.duration %></h6>
-      <p>"<%= @workout.description %>"</p><br>
+      <p>"<%= @workout.description %>"</p>
    </div>
 
    <div class="exercise-routines">
+      <hr>
       <% @workout.routines.each do |routine| %>
-         <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h3>
-         <h5><%= routine_exercise_category(routine) %></h5>
-         <p>"<%= routine.caption %>"</p><br>
+         <h4><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise_id) %></h4>
+         <h6><%= routine_exercise_category(routine) %></h6>
+         <p>"<%= routine.caption %>"</p>
       <% end %>
+      <hr>
    </div>
 
-   <br>
-
-   <% if current_users_workout? %>
-      <p><%= link_to "Add Another Routine", new_workout_routine_path(@workout) %></p>
-      <p><%= link_to "Edit Workout", edit_workout_path(@workout) %></p>
-      <p><%= link_to "Delete Workout", workout_path(@workout), method: :delete, data: { confirm: "Are you sure you want to delete this workout?" } %></p>
-   <% end %>
+   <%= current_users_workout_link_options(@workout) %>
+   
 </div>

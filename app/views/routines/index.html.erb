@@ -9,7 +9,7 @@
          <h6><%= routine_exercise_category(routine) %></h6>
          <h6><%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %></h6>
          <h6><%= link_to routine_username(routine), user_path(routine_user(routine)) %></h6>
-         <p>"<%= routine.caption %>"</p>
+         <h6>"<%= routine.caption %>"</h6>
          <br>
       <% end %>
    </div>

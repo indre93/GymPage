@@ -14,4 +14,12 @@ module WorkoutsHelper
       workout.user.username
    end
 
+   def current_users_workout_link_options(workout)
+      if current_users_workout?
+         content = tag.p(link_to("Add Another Routine", new_workout_routine_path(workout)))
+         content << tag.p(link_to("Edit Workout", edit_workout_path(workout)))
+         content << tag.p(link_to("Delete Workout", workout_path(workout), method: :delete, data: { confirm: "Are you sure you want to delete this workout?" }))
+      end
+   end
+
 end

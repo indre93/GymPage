@@ -8,7 +8,7 @@
       <%= f.fields_for :exercise do |ff| %>
          <%= ff.label :name, "Or Add New Exercise" %>
          <%= ff.text_field :name, placeholder: "Exercise name" %><br>
-
+         
          <%= ff.label :category, "Category" %>
          <%= ff.select :category, options_for_select(category_options), include_blank: true %>
       <% end %>
@@ -23,5 +23,6 @@
       <%= link_to_remove_association "Remove Exercise", f %>
    </div>
 
-   <br><br>
+   <hr>
+
 </div>

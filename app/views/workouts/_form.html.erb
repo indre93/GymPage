@@ -23,20 +23,15 @@
                <%= render "routine_fields", f: routine %>
             <% end %>   
          </div>
-      </legend>   
 
-      <br>
-
-      <div class="btn btn-outline-dark">
-         <div class="links">
+ 
+         <div class="btn btn-outline-success">
             <%= link_to_add_association "Add Another Exercise", f, :routines, 
                'data-association-insertion-node': '#exercise-routines', 
                'data-association-insertion-method': "append", 
                :wrap_object => Proc.new {|routine| routine.build_exercise; routine } %>
          </div>
-      </div>
-
-      <br>
+      </legend>
 
       <%= f.submit %>
    <% end %>

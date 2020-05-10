@@ -3,6 +3,8 @@
 <div class="content">
    <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
+   <br>
+   
    <% if @workouts.empty? %>
       <h2>You have 0 workouts so far. Add your first workout<%= link_to "here", new_workout_path %></h2>
    <% else %>
