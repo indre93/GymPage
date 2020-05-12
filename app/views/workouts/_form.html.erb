@@ -6,25 +6,26 @@
          <%= f.label :date %>
          <%= f.date_select :date, order: [:month, :day, :year] %>
       </div>
+
       <div>
          <%= f.label :duration %>
          <%= f.text_field :duration, placeholder: "Please include hours/minutes" %><br>
       </div>
+
       <div>
          <%= f.label :description, "Description" %>
          <%= f.text_area :description %>    
       </div>
 
       <br>
-      
-      <legend><br>
+
+      <legend>
          <div id="exercise-routines">
             <%= f.fields_for :routines do |routine| %>
                <%= render "routine_fields", f: routine %>
-            <% end %>   
+            <% end %>
          </div>
 
- 
          <div class="btn btn-outline-success">
             <%= link_to_add_association "Add Another Exercise", f, :routines, 
                'data-association-insertion-node': '#exercise-routines', 

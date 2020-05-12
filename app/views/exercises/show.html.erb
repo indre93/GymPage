@@ -1,10 +1,8 @@
 <h1>Exercise Details</h1>
 
 <div class="content">
-   <h3><%= @exercise.name %></h3></legend>
+   <h3><%= @exercise.name %></h3>
    <h5><%= @exercise.category %></h5><br>
    <legend><%= @exercise.workouts.size %> user(s) completed this exercise!</legend><br>
-   <p><%= link_to "View routines", exercise_routines_path(@exercise) %></p><br>
-
-   <%= link_to 'Back', :back %>
+   <p><%= link_to "View routines", exercise_routines_path(@exercise) %></p>
 </div>

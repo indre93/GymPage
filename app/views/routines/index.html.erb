@@ -4,13 +4,17 @@
    <%= render partial: "layouts/alerts", locals: { object: @routines } %>
 
    <div class="exercise-routine">
-      <% @routines.each do |routine| %>
-         <h3><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise) %></h3>
-         <h6><%= routine_exercise_category(routine) %></h6>
-         <h6><%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %></h6>
-         <h6><%= link_to routine_username(routine), user_path(routine_user(routine)) %></h6>
-         <h6>"<%= routine.caption %>"</h6>
-         <br>
+      <% if @routines.empty? %>
+         <p>No routine has been completed for exercise: <b><%= @exercise.name %></b></p>
+      <% else %>
+         <% @routines.each do |routine| %>
+            <h4><%= link_to routine_exercise_name(routine), exercise_path(routine.exercise) %></h4>
+            <h6><%= routine_exercise_category(routine) %></h6>
+            <h6><%= link_to workout_date(routine.workout), user_workout_path(routine_user(routine), routine.workout) %></h6>
+            <h6><%= link_to routine_username(routine), user_path(routine_user(routine)) %></h6>
+            <h6>"<%= routine.caption %>"</h6>
+            <br>
+         <% end %>
       <% end %>
    </div>
 </div>

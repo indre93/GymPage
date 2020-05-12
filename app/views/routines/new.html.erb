@@ -5,7 +5,7 @@
    <%= render partial: "layouts/alerts", locals: { object: @routine.exercise } %>
 
    <div class="routine-form">
-      <br><h2><%= workout_date(@workout) %>'s Workout</h2><br>
+      <h2><%= workout_date(@workout) %>'s Workout</h2><br>
       
       <%= form_for([@workout, @routine]) do |f| %>
          <%= f.label :exercise_id, "Select Existing Exercise" %>

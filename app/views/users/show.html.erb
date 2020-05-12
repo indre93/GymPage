@@ -3,15 +3,13 @@
 <div class="content">
    <%= render partial: "layouts/alerts", locals: { object: @user } %>
 
-   <br>
-   
    <% if @workouts.empty? %>
       <h2>You have 0 workouts so far. Add your first workout<%= link_to "here", new_workout_path %></h2>
    <% else %>
       <% @workouts.each do |workout| %>
          <legend><%= workout_date(workout) %></legend>
          <p><%= workout.duration %></p>
-         <h5>"<%= workout.description %>"</h5>
+         <p>"<%= workout.description %>"</p>
          <p><%= link_to "See More Details", user_workout_path(workout.user, workout) %></p>
       <% end %>
    <% end %>

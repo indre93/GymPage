@@ -4,11 +4,12 @@
    <%= render partial: "layouts/alerts", locals: { object: @user } %>
    
    <div class="workouts-index-page">
-      <h2>Recent Workouts Posted: </h2><br>
+      <h2>Recent Workouts</h2><br>
+
       <% @recent_workouts.each do |workout| %>
          <legend><%= link_to workout_username(workout), user_path(workout.user) %></legend>
          <p><%= workout_posted_at(workout) %></p>
-         <h5>"<%= workout.description %>"</h5>
+         <p>"<%= workout.description %>"</p>
          <p><%= link_to "See more", user_workout_path(workout.user, workout) %></p>
       <% end %>
    </div>
