@@ -25,6 +25,7 @@ gem 'pry'
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'cocoon'
 
 gem 'data-confirm-modal'
